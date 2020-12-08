@@ -16,10 +16,10 @@ parserOptions:
 plugins:
   - react
 rules: {
-  "no-console": ["error",
-    {
-      allow: ["warn", "error"]
-    }],
+  # "no-console": ["error",
+  #   {
+  #     allow: ["warn", "error"]
+  #   }],
   "no-trailing-spaces": "error",
   "react/prop-types": "error",
   "no-unused-vars": "error",

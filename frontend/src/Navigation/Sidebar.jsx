@@ -66,14 +66,21 @@ function Sidebar() {
 
   return(
     <div>
-      {['left'].map((anchor) => (
+      <React.Fragment key='left'>
+        <Button onClick={toggleDrawer('left', true)}>Menu</Button>
+        <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
+          {list('left')}
+        </Drawer>
+      </React.Fragment>
+
+      {/* {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>Menu</Button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>
         </React.Fragment>
-      ))}
+      ))} */}
     </div>
   )
 }
