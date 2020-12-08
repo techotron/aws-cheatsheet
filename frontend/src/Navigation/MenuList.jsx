@@ -1,115 +1,143 @@
-import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import EC2 from 'react-aws-icons/dist/aws/logo/EC2';
-import RDS from 'react-aws-icons/dist/aws/logo/RDS';
-import S3 from 'react-aws-icons/dist/aws/logo/S3';
-import DynamoDB from 'react-aws-icons/dist/aws/logo/DynamoDB';
+import React from "react";
+import PropTypes from "prop-types";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import Divider from "@material-ui/core/Divider";
+import { withStyles } from "@material-ui/core/styles";
+import getCategories from '../Mocks/Categories';
+import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     width: '100%',
-//     maxWidth: 360,
-//     backgroundColor: theme.palette.background.paper,
-//   },
-//   nested: {
-//     paddingLeft: theme.spacing(4),
-//   },
-// }));
 
-// export default function NestedList() {
+const styles = theme => ({
+    root: {
+        width: "100%",
+        maxWidth: 360,
+        background: theme.palette.background.paper
+    },
+    nested: {
+        paddingLeft: theme.spacing.unit * 4
+    }
+});
 
-class NestedList extends Component {
+class NestedList extends React.Component {
     constructor() {
         super()
         this.state = {
-            computeOpen: false,
-            databaseOpen: false,
-            storageOpen: false
+            items:  getCategories(),
         }
     }
-
-    useStyles = makeStyles((theme) => ({
-        root: {
-            width: '100%',
-            maxWidth: 360,
-            backgroundColor: theme.palette.background.paper,
-        },
-        nested: {
-            paddingLeft: theme.spacing(4),
-        },
-    }));
-
-    classes = this.useStyles();
-
-    // const [open, setOpen] = React.useState(false);
-
-    // handleClick = () => {
-    //     setOpen(!open);
-    // };
+    // state = {};
+    handleClick = e => {
+        this.setState({ [e]: !this.state[e] });
+    };
 
     render() {
+        const { classes } = this.props;
         return (
-            <List
-                component="nav"
-                aria-labelledby="nested-list-subheader"
-                subheader={
-                    <ListSubheader component="div" id="nested-list-subheader">
-                        Categories
-                    </ListSubheader>
-                }
-                className={this.classes.root}
-            >
-                <ListItem button>
-                    <ListItemIcon>
-                        <EC2 />
-                    </ListItemIcon>
-                    <ListItemText primary="Compute" />
-                </ListItem>
-                <ListItem button onClick={() => {this.setState({computeOpen: !this.computeOpen})}}>
-                    <ListItemIcon>
-                        <RDS />
-                    </ListItemIcon>
-                    <ListItemText primary="Databases" />
-                    {this.computeOpen ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse key="database" in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={this.classes.nested}>
-                            <ListItemIcon>
-                                <DynamoDB />
-                            </ListItemIcon>
-                            <ListItemText primary="DynamoDB" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-                <ListItem button onClick={() => {this.setState({databaseOpen: !this.databaseOpen})}}>
-                    <ListItemIcon>
-                        <S3 />
-                    </ListItemIcon>
-                    <ListItemText primary="Storage" />
-                    {this.databaseOpen ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse key="storage" in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem button className={this.classes.nested}>
-                            <ListItemIcon>
-                                <S3 />
-                            </ListItemIcon>
-                            <ListItemText primary="S3" />
-                        </ListItem>
-                    </List>
-                </Collapse>
-            </List>
+            <div>
+                {this.state.items.categories.map(list => {
+                    return (
+                        <List
+                            className={classes.root}
+                            key={list.id}
+                            subheader={
+                                <ListSubheader>{list.title}</ListSubheader>
+                            }
+                        >
+                            {list.items.map(item => {
+                                return (
+                                    <div key={item.id}>
+                                        {item.subitems != null ? (
+                                            <div key={item.id}>
+                                                <ListItem
+                                                    button
+                                                    key={item.id}
+                                                    onClick={this.handleClick.bind(
+                                                        this,
+                                                        item.name
+                                                    )}
+                                                >
+                                                    <ListItemIcon>
+                                                        {AwsIconMatcher(item.name)}
+                                                    </ListItemIcon>
+                                                    <ListItemText
+                                                        primary={item.name}
+                                                    />
+                                                    {this.state[item.name] ? (<ExpandLess />) : (<ExpandMore />)}
+                                                </ListItem>
+                                                <Collapse
+                                                    key={list.items.id}
+                                                    component="li"
+                                                    in={this.state[item.name]}
+                                                    timeout="auto"
+                                                    unmountOnExit
+                                                >
+                                                    <List disablePadding>
+                                                        {item.subitems.map(
+                                                            sitem => {
+                                                                return (
+                                                                    <ListItem
+                                                                        button
+                                                                        key={
+                                                                            sitem.id
+                                                                        }
+                                                                        className={
+                                                                            classes.nested
+                                                                        }
+                                                                    >
+                                                                        <ListItemIcon>
+                                                                            {GeneralIconMatcher(sitem.name)}
+                                                                        </ListItemIcon>
+                                                                        <ListItemText
+                                                                            key={
+                                                                                sitem.id
+                                                                            }
+                                                                            primary={
+                                                                                sitem.name
+                                                                            }
+                                                                        />
+                                                                    </ListItem>
+                                                                );
+                                                            }
+                                                        )}
+                                                    </List>
+                                                </Collapse>{" "}
+                                            </div>
+                                        ) : (
+                                            <ListItem
+                                                button
+                                                onClick={this.handleClick.bind(
+                                                    this,
+                                                    item.name
+                                                )}
+                                                key={item.id}
+                                            >
+                                                <ListItemIcon>
+                                                    {AwsIconMatcher(item.name)}
+                                                </ListItemIcon>
+                                                <ListItemText
+                                                    primary={item.name}
+                                                />
+                                            </ListItem>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                            <Divider key={list.id} absolute />
+                        </List>
+                    );
+                })}
+            </div>
         );
     }
 }
-
-export default NestedList;
+NestedList.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+export default withStyles(styles)(NestedList);
