@@ -9,6 +9,9 @@ import DynamoDB from 'react-aws-icons/dist/aws/logo/DynamoDB';
 import ECS from 'react-aws-icons/dist/aws/logo/ECS';
 import Lambda from 'react-aws-icons/dist/aws/logo/Lambda';
 import Glacier from 'react-aws-icons/dist/aws/logo/Glacier';
+import ElasticCache from 'react-aws-icons/dist/aws/logo/ElasticCache';
+import IAM from 'react-aws-icons/dist/aws/logo/IAM';
+import KMS from 'react-aws-icons/dist/aws/logo/KMS';
 
 function AwsIconMatcher(service) {
     if (service === "EC2") {
@@ -27,6 +30,12 @@ function AwsIconMatcher(service) {
         return <Lambda />
     } else if (service === "S3 Glacier") {
         return <Glacier />
+    } else if (service === "ElasticCache") {
+        return <ElasticCache />
+    } else if (service === "IAM") {
+        return <IAM />
+    } else if (service === "KMS") {
+        return <KMS />
     }
 }
 

@@ -32,7 +32,7 @@ class NestedList extends React.Component {
             items:  getCategories(),
         }
     }
-    // state = {};
+
     handleClick = e => {
         this.setState({ [e]: !this.state[e] });
     };
@@ -43,32 +43,17 @@ class NestedList extends React.Component {
             <div>
                 {this.state.items.categories.map(list => {
                     return (
-                        <List
-                            className={classes.root}
-                            key={list.id}
-                            subheader={
-                                <ListSubheader>{list.title}</ListSubheader>
-                            }
-                        >
+                        <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
                             {list.items.map(item => {
                                 return (
                                     <div key={item.id}>
                                         {item.subitems != null ? (
                                             <div key={item.id}>
-                                                <ListItem
-                                                    button
-                                                    key={item.id}
-                                                    onClick={this.handleClick.bind(
-                                                        this,
-                                                        item.name
-                                                    )}
-                                                >
+                                                <ListItem button key={item.id} onClick={this.handleClick.bind(this,item.name)} >
                                                     <ListItemIcon>
                                                         {AwsIconMatcher(item.name)}
                                                     </ListItemIcon>
-                                                    <ListItemText
-                                                        primary={item.name}
-                                                    />
+                                                    <ListItemText primary={item.name} />
                                                     {this.state[item.name] ? (<ExpandLess />) : (<ExpandMore />)}
                                                 </ListItem>
                                                 <Collapse
@@ -82,26 +67,11 @@ class NestedList extends React.Component {
                                                         {item.subitems.map(
                                                             sitem => {
                                                                 return (
-                                                                    <ListItem
-                                                                        button
-                                                                        key={
-                                                                            sitem.id
-                                                                        }
-                                                                        className={
-                                                                            classes.nested
-                                                                        }
-                                                                    >
+                                                                    <ListItem button key={sitem.id} className={classes.nested} >
                                                                         <ListItemIcon>
                                                                             {GeneralIconMatcher(sitem.name)}
                                                                         </ListItemIcon>
-                                                                        <ListItemText
-                                                                            key={
-                                                                                sitem.id
-                                                                            }
-                                                                            primary={
-                                                                                sitem.name
-                                                                            }
-                                                                        />
+                                                                        <ListItemText key={sitem.id} primary={sitem.name} />
                                                                     </ListItem>
                                                                 );
                                                             }
@@ -110,20 +80,11 @@ class NestedList extends React.Component {
                                                 </Collapse>{" "}
                                             </div>
                                         ) : (
-                                            <ListItem
-                                                button
-                                                onClick={this.handleClick.bind(
-                                                    this,
-                                                    item.name
-                                                )}
-                                                key={item.id}
-                                            >
+                                            <ListItem button onClick={this.handleClick.bind(this, item.name)} key={item.id} >
                                                 <ListItemIcon>
                                                     {AwsIconMatcher(item.name)}
                                                 </ListItemIcon>
-                                                <ListItemText
-                                                    primary={item.name}
-                                                />
+                                                <ListItemText primary={item.name} />
                                             </ListItem>
                                         )}
                                     </div>
@@ -137,7 +98,9 @@ class NestedList extends React.Component {
         );
     }
 }
+
 NestedList.propTypes = {
     classes: PropTypes.object.isRequired
 };
+
 export default withStyles(styles)(NestedList);

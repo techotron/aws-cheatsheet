@@ -4,7 +4,6 @@ import { Container } from '@material-ui/core';
 import App from './App';
 
 
-
 function Router() {
     return (
         <div>
@@ -12,9 +11,8 @@ function Router() {
                 <Route exact
                     path='/'
                     render={() =>
-                        <Container style={{fontFamily: "sans-serif"}}>
+                        <Container style={{ fontFamily: "sans-serif" }}>
                             <App />
-                            <h1>This is the homepage</h1>
                         </Container>
                     }
                 />
@@ -25,6 +23,14 @@ function Router() {
                             <h1>Welcome to AWS Cheatsheet info page</h1>
                             Example of dynamic env var:
                             <h3>API_URL: {window.env.REACT_APP_API_URL}</h3>
+                        </span>
+                    }
+                />
+                <Route
+                    path='/services/:categoryId/:id'
+                    render={() =>
+                        <span>
+                            <h1>This is where some information about AWS services will go</h1>
                         </span>
                     }
                 />

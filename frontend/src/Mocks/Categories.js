@@ -128,6 +128,54 @@ export default function getCategories() {
                                 name: "Pricing Model"
                             }
                         ]
+                    },
+                    {
+                        id: 3,
+                        name: "ElasticCache",
+                        subitems: [
+                            {
+                                id: 1,
+                                name: "Summary"
+                            },
+                            {
+                                id: 2,
+                                name: "Pricing Model"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 4,
+                title: "Security",
+                items: [
+                    {
+                        id: 1,
+                        name: "IAM",
+                        subitems: [
+                            {
+                                id: 1,
+                                name: "Summary"
+                            },
+                            {
+                                id: 2,
+                                name: "Pricing Model"
+                            }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        name: "KMS",
+                        subitems: [
+                            {
+                                id: 1,
+                                name: "Summary"
+                            },
+                            {
+                                id: 2,
+                                name: "Pricing Model"
+                            }
+                        ]
                     }
                 ]
             }
