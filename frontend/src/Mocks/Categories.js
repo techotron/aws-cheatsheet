@@ -15,6 +15,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -29,6 +33,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -43,6 +51,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -63,6 +75,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -77,6 +93,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -97,6 +117,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -111,6 +135,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -125,6 +153,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -139,6 +171,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -159,6 +195,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]
@@ -173,6 +213,10 @@ export default function getCategories() {
                             },
                             {
                                 id: 2,
+                                name: "Revision Checklist"
+                            },
+                            {
+                                id: 3,
                                 name: "Pricing Model"
                             }
                         ]

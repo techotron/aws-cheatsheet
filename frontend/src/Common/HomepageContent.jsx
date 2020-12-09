@@ -3,6 +3,6 @@ export default function HomepageContent() {
         `# Welcome to the AWS Cheatsheet
 A site for learning about AWS services. 
 
-Primarily so I can learn how to use Javascript/Golang whilst also revising for an AWS Certification :)`
+Primarily so I can learn how to use Javascript/Node whilst also revising for an AWS Certification :)`
     )
 }

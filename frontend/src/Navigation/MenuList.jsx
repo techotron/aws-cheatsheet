@@ -12,6 +12,7 @@ import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
 import getCategories from '../Mocks/Categories';
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
+import { Link } from 'react-router-dom';
 
 
 const styles = theme => ({
@@ -67,7 +68,7 @@ class NestedList extends React.Component {
                                                         {item.subitems.map(
                                                             sitem => {
                                                                 return (
-                                                                    <ListItem button key={sitem.id} className={classes.nested} >
+                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/services/" + item.id + "/" + sitem.id}>
                                                                         <ListItemIcon>
                                                                             {GeneralIconMatcher(sitem.name)}
                                                                         </ListItemIcon>

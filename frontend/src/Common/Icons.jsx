@@ -1,6 +1,7 @@
 import React from "react";
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import Info from '@material-ui/icons/Info';
+import ListIcon from '@material-ui/icons/List';
 
 import EC2 from 'react-aws-icons/dist/aws/logo/EC2';
 import RDS from 'react-aws-icons/dist/aws/logo/RDS';
@@ -44,6 +45,8 @@ function GeneralIconMatcher(item) {
         return <MonetizationOnIcon />
     } else if (item === "Summary") {
         return <Info />
+    } else if (item === "Revision Checklist") {
+        return <ListIcon />
     }
 }
 

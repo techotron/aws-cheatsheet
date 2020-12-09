@@ -12,7 +12,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NestedList from './Navigation/MenuList';
-import Homepage from './Homepage';
+import Router from './Router';
+// import Homepage from './Homepage';
+import { BrowserRouter } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -22,16 +24,16 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
         }),
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
         }),
     },
     menuButton: {
@@ -59,15 +61,15 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
         transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
     },
@@ -88,56 +90,44 @@ export default function App() {
 
     return (
         <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-            position="fixed"
-            className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-            })}
-        >
-            <Toolbar>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, open && classes.hide)}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-                Categories
-            </Typography>
-            </Toolbar>
-        </AppBar>
-        <Drawer
-            className={classes.drawer}
-            variant="persistent"
-            anchor="left"
-            open={open}
-            classes={{
-            paper: classes.drawerPaper,
-            }}
-        >
-            <div className={classes.drawerHeader}>
-                <IconButton onClick={handleDrawerClose}>
-                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                </IconButton>
-            </div>
-            <Divider />
-            <NestedList />
-        </Drawer>
-        <main
-            className={clsx(classes.content, {
-                [classes.contentShift]: open,
-            })}
-        >
-            <div className={classes.drawerHeader} />
-            {/* <Typography paragraph>
-                <h1>Welcome to AWS Cheatsheet</h1>
-            </Typography> */}
-            <Homepage />
-        </main>
+            <CssBaseline />
+            <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open,})} >
+                <Toolbar>
+                    <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)} >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap>
+                        Categories
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <BrowserRouter >
+                <Drawer className={classes.drawer} variant="persistent" anchor="left" open={open} classes={{paper: classes.drawerPaper,}} >
+                    <div className={classes.drawerHeader}>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        </IconButton>
+                    </div>
+                    <Divider />
+                    <NestedList />
+                </Drawer>
+                <main className={clsx(classes.content, {[classes.contentShift]: open,})} >
+                    <div className={classes.drawerHeader} />
+                    <Router />
+                    {/* <Switch>
+                        <Route exact path="/" render={() => <Homepage />}/>
+                        <Route
+                            path='/services/:categoryId/:id'
+                            render={() =>
+                                <span>
+                                    <h1>This is where some information about AWS services will go</h1>
+                                </span>
+                            }
+                        />
+                    </Switch> */}
+                    {/* <Homepage /> */}
+                </main>
+            </BrowserRouter>
         </div>
     );
 }
