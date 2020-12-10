@@ -2,8 +2,7 @@
 A place for revise AWS things
 
 TODO: 
-- Create backend API in Node JS
-- Create database
+- Connect frontend to backend (display simple message on frontend which has been fetched from backend)
 - Connect Node API to database to serve content
 - Create mechanism to updating database (eg Migrations, DBUP)
 - Add data from mock services to database using above method

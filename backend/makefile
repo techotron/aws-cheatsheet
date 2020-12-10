@@ -1,5 +1,5 @@
 run-dev:
-	docker-compose -f docker-compose.yaml -f docker-compose-debug.yaml up --build -d db
+	docker-compose -f docker-compose.yaml -f docker-compose-debug.yaml up --build -d backend
 run-pgadmin:
 	docker-compose -f docker-compose.yaml -f docker-compose-debug.yaml up --build -d pgadmin
 down:
