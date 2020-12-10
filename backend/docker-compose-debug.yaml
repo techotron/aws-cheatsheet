@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4:4.29
+    ports:
+      - 8080:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_LOGIN_BANNER: '"Authorised users only!"'
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: 'False'
+    volumes:
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
