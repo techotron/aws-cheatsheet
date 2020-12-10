@@ -11,9 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import NestedList from './Navigation/MenuList';
+import NavList from './Navigation/NavList';
 import Router from './Router';
-// import Homepage from './Homepage';
 import { BrowserRouter } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -109,23 +108,11 @@ export default function App() {
                         </IconButton>
                     </div>
                     <Divider />
-                    <NestedList />
+                    <NavList />
                 </Drawer>
                 <main className={clsx(classes.content, {[classes.contentShift]: open,})} >
                     <div className={classes.drawerHeader} />
                     <Router />
-                    {/* <Switch>
-                        <Route exact path="/" render={() => <Homepage />}/>
-                        <Route
-                            path='/services/:categoryId/:id'
-                            render={() =>
-                                <span>
-                                    <h1>This is where some information about AWS services will go</h1>
-                                </span>
-                            }
-                        />
-                    </Switch> */}
-                    {/* <Homepage /> */}
                 </main>
             </BrowserRouter>
         </div>

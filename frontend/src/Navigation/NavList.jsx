@@ -13,6 +13,7 @@ import { withStyles } from "@material-ui/core/styles";
 import getCategories from '../Mocks/Categories';
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
 
 
 const styles = theme => ({
@@ -26,7 +27,7 @@ const styles = theme => ({
     }
 });
 
-class NestedList extends React.Component {
+class NavList extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -42,6 +43,12 @@ class NestedList extends React.Component {
         const { classes } = this.props;
         return (
             <div>
+                <ListItem button key={0} component={Link} to="/" >
+                    <ListItemIcon>
+                        <HomeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Home" />
+                </ListItem>
                 {this.state.items.categories.map(list => {
                     return (
                         <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
@@ -54,25 +61,19 @@ class NestedList extends React.Component {
                                                     <ListItemIcon>
                                                         {AwsIconMatcher(item.name)}
                                                     </ListItemIcon>
-                                                    <ListItemText primary={item.name} />
+                                                    <ListItemText primary={item.title} />
                                                     {this.state[item.name] ? (<ExpandLess />) : (<ExpandMore />)}
                                                 </ListItem>
-                                                <Collapse
-                                                    key={list.items.id}
-                                                    component="li"
-                                                    in={this.state[item.name]}
-                                                    timeout="auto"
-                                                    unmountOnExit
-                                                >
+                                                <Collapse key={list.items.id} component="li" in={this.state[item.name]} timeout="auto" unmountOnExit >
                                                     <List disablePadding>
                                                         {item.subitems.map(
                                                             sitem => {
                                                                 return (
-                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/services/" + item.id + "/" + sitem.id}>
+                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + sitem.name + "/" + list.id + "/" + item.id}>
                                                                         <ListItemIcon>
                                                                             {GeneralIconMatcher(sitem.name)}
                                                                         </ListItemIcon>
-                                                                        <ListItemText key={sitem.id} primary={sitem.name} />
+                                                                        <ListItemText key={sitem.id} primary={sitem.title} />
                                                                     </ListItem>
                                                                 );
                                                             }
@@ -100,8 +101,8 @@ class NestedList extends React.Component {
     }
 }
 
-NestedList.propTypes = {
+NavList.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(NestedList);
+export default withStyles(styles)(NavList);

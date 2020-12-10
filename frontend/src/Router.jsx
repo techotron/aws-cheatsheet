@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
+// import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+// import Link from '@material-ui/core/Link';
+// import Typography from '@material-ui/core/Typography';
+import ServiceSummary from './Common/ServiceSummary';
 
 function Router() {
     return (
@@ -22,13 +26,13 @@ function Router() {
                 }
             />
             <Route
-                path='/services/:categoryId/:id'
+                path='/summary/:category/:service'
                 render={(props) =>
-                    <span>
-                        <h1>This is where some information about AWS services will go.</h1>
-                        <h3>Category ID: </h3>{props.match.params.categoryId}
-                        <h3>Sub Category ID: </h3>{props.match.params.id}
-                    </span>
+                    <ServiceSummary
+                        props={props}
+                        category={props.match.params.category}
+                        service={props.match.params.service}
+                    />
                 }
             />
         </Switch>

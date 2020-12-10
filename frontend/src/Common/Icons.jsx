@@ -15,37 +15,37 @@ import IAM from 'react-aws-icons/dist/aws/logo/IAM';
 import KMS from 'react-aws-icons/dist/aws/logo/KMS';
 
 function AwsIconMatcher(service) {
-    if (service === "EC2") {
+    if (service === "ec2") {
         return <EC2 />
-    } else if (service === "RDS") {
+    } else if (service === "rds") {
         return <RDS />
-    } else if (service === "S3") {
+    } else if (service === "s3") {
         return <S3 />
-    } else if (service === "DynamoDB") {
+    } else if (service === "dynamodb") {
         return <DynamoDB />
-    } else if (service === "ECS") {
+    } else if (service === "ecs") {
         return <ECS />
-    } else if (service === "Aurora") {
+    } else if (service === "aurora") {
         return <RDS />
-    } else if (service === "Lambda") {
+    } else if (service === "lambda") {
         return <Lambda />
-    } else if (service === "S3 Glacier") {
+    } else if (service === "s3glacier") {
         return <Glacier />
-    } else if (service === "ElasticCache") {
+    } else if (service === "elasticcache") {
         return <ElasticCache />
-    } else if (service === "IAM") {
+    } else if (service === "iam") {
         return <IAM />
-    } else if (service === "KMS") {
+    } else if (service === "kms") {
         return <KMS />
     }
 }
 
 function GeneralIconMatcher(item) {
-    if (item === "Pricing Model") {
+    if (item === "pricing") {
         return <MonetizationOnIcon />
-    } else if (item === "Summary") {
+    } else if (item === "summary") {
         return <Info />
-    } else if (item === "Revision Checklist") {
+    } else if (item === "checklist") {
         return <ListIcon />
     }
 }

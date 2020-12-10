@@ -7,55 +7,70 @@ export default function getCategories() {
                 items: [
                     {
                         id: 1,
-                        name: "EC2",
+                        name: "ec2",
+                        title: "EC2",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
                         id: 2,
-                        name: "ECS",
+                        name: "ecs",
+                        title: "ECS",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
-                        id: 2,
-                        name: "Lambda",
+                        id: 3,
+                        name: "lambda",
+                        title: "Lambda",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     }
@@ -67,37 +82,47 @@ export default function getCategories() {
                 items: [
                     {
                         id: 1,
-                        name: "S3",
+                        name: "s3",
+                        title: "S3",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
-                        id: 1,
-                        name: "S3 Glacier",
+                        id: 2,
+                        name: "s3glacier",
+                        title: "S3 Glacier",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     }
@@ -109,73 +134,93 @@ export default function getCategories() {
                 items: [
                     {
                         id: 1,
-                        name: "RDS",
+                        name: "rds",
+                        title: "RDS",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
                         id: 2,
-                        name: "DynamoDB",
+                        name: "dynamodb",
+                        title: "DynamoDB",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
                         id: 3,
-                        name: "Aurora",
+                        name: "aurora",
+                        title: "Aurora",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
-                        id: 3,
-                        name: "ElasticCache",
+                        id: 4,
+                        name: "elasticcache",
+                        title: "ElasticCache",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     }
@@ -187,37 +232,47 @@ export default function getCategories() {
                 items: [
                     {
                         id: 1,
-                        name: "IAM",
+                        name: "iam",
+                        title: "IAM",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     },
                     {
                         id: 2,
-                        name: "KMS",
+                        name: "kms",
+                        title: "KMS",
                         subitems: [
                             {
                                 id: 1,
-                                name: "Summary"
+                                name: "summary",
+                                title: "Summary"
                             },
                             {
                                 id: 2,
-                                name: "Revision Checklist"
+                                name: "checklist",
+                                title: "Revision Checklist"
+
                             },
                             {
                                 id: 3,
-                                name: "Pricing Model"
+                                name: "pricing",
+                                title: "Pricing Model"
                             }
                         ]
                     }
