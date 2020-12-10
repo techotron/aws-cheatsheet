@@ -10,7 +10,7 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
-import getCategories from '../Mocks/Categories';
+import getCategories from '../Mocks/MockCategories';
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';

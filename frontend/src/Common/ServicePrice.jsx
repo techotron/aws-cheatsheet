@@ -3,7 +3,7 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 
-class ServiceSummary extends React.Component {
+class ServicePrice extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -13,7 +13,7 @@ class ServiceSummary extends React.Component {
             <div>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link color="inherit" href="/" >
-                        summary
+                        pricing
                     </Link>
                     <Link color="inherit" >
                         {this.props.data.categoryName}
@@ -22,17 +22,17 @@ class ServiceSummary extends React.Component {
                 </Breadcrumbs>
                 <span>
                     <h1>This is where some information about AWS services will go.</h1>
-                    {this.props.data.summary}
+                    {this.props.data.priceModel}
                 </span>
             </div>
         )
     }
 }
 
-ServiceSummary.propTypes = {
+ServicePrice.propTypes = {
     category: Number,
     service: Number,
     data: Object,
 }
 
-export default ServiceSummary;
+export default ServicePrice;

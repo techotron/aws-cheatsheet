@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
-// import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-// import Link from '@material-ui/core/Link';
-// import Typography from '@material-ui/core/Typography';
 import ServiceSummary from './Common/ServiceSummary';
+import ServiceChecklist from './Common/ServiceChecklist';
+import ServicePrice from './Common/ServicePrice';
+import { getCategoryData } from './Common/CategoryData';
 
 function Router() {
     return (
@@ -32,6 +32,29 @@ function Router() {
                         props={props}
                         category={props.match.params.category}
                         service={props.match.params.service}
+                        data={getCategoryData(props.match.params.category, props.match.params.service)}
+                    />
+                }
+            />
+            <Route
+                path='/checklist/:category/:service'
+                render={(props) =>
+                    <ServiceChecklist
+                        props={props}
+                        category={props.match.params.category}
+                        service={props.match.params.service}
+                        data={getCategoryData(props.match.params.category, props.match.params.service)}
+                    />
+                }
+            />
+            <Route
+                path='/pricing/:category/:service'
+                render={(props) =>
+                    <ServicePrice
+                        props={props}
+                        category={props.match.params.category}
+                        service={props.match.params.service}
+                        data={getCategoryData(props.match.params.category, props.match.params.service)}
                     />
                 }
             />
