@@ -1,5 +1,5 @@
 # aws-cheatsheet
-A place for revise AWS things
+A place for revising AWS things
 
 TODO: 
 - Connect frontend to backend (display simple message on frontend which has been fetched from backend)
