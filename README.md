@@ -2,8 +2,8 @@
 A place for revising AWS things
 
 TODO: 
-- Connect frontend to backend (display simple message on frontend which has been fetched from backend)
 - Connect Node API to database to serve content
+- Display content on frontend which has been fetched from the DB by the backend
 - Create mechanism to updating database (eg Migrations, DBUP)
 - Add data from mock services to database using above method
 - Create services in backend to return data
