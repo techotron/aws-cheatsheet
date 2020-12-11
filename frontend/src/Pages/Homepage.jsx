@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import ReactMarkdown from 'react-markdown';
-import HomepageContent from './Common/HomepageContent';
+import HomepageContent from '../Common/HomepageContent';
 
 class Homepage extends React.Component {
     constructor() {

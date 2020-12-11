@@ -1,10 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Homepage from './Homepage';
-import ServiceSummary from './Common/ServiceSummary';
-import ServiceChecklist from './Common/ServiceChecklist';
-import ServicePrice from './Common/ServicePrice';
-import { getCategoryData } from './Common/CategoryData';
+import Homepage from './Pages/Homepage';
+import ServiceSummary from './Templates/ServiceSummary';
+import ServiceChecklist from './Templates/ServiceChecklist';
+import ServicePrice from './Templates/ServicePrice';
+import { getCategoryData } from './Templates/CategoryData';
+import Status from './Pages/Status'
 
 function Router() {
     return (
@@ -56,6 +57,14 @@ function Router() {
                         service={props.match.params.service}
                         data={getCategoryData(props.match.params.category, props.match.params.service)}
                     />
+                }
+            />
+            <Route exact
+                path='/status'
+                render={() =>
+                    <span>
+                        <Status />
+                    </span>
                 }
             />
         </Switch>
