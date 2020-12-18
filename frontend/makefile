@@ -1,6 +1,6 @@
 REGISTRY=techotron
 VERSION=$(shell git rev-parse --short HEAD)
-APP=aws-cheatsheet:fe-$(VERSION)
+APP=aws-tutor:fe-$(VERSION)
 LINTER=eslint:webapp
 
 build:

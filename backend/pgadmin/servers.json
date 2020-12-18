@@ -1,8 +1,8 @@
 {
     "Servers": {
         "1": {
-            "Name": "awscheatsheet",
-            "Group": "local-awscheatsheet",
+            "Name": "awstutor",
+            "Group": "local-awstutor",
             "Host": "db",
             "Port": 5432,
             "MaintenanceDB": "postgres",
