@@ -5,7 +5,6 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,6 +13,18 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NavList from './Navigation/NavList';
 import Router from './Router';
 import { BrowserRouter } from "react-router-dom";
+
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import { Link } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
+
+import getCategories from './Mocks/MockCategories';
+import getScenarios from './Mocks/MockScenarios';
 
 const drawerWidth = 240;
 
@@ -74,6 +85,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
+
 export default function App() {
     const classes = useStyles();
     const theme = useTheme();
@@ -87,6 +105,30 @@ export default function App() {
         setOpen(false);
     };
 
+
+    const [value, setValue] = React.useState(0);
+
+    var NavContent = {
+        items: getCategories(),
+        parent: "revision"
+    }
+
+    // TODO: Need to change this to state somehow
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+        if (newValue === 0) {
+            NavContent = {
+                items: getCategories(),
+                parent: "revision"
+            }
+        } else if (newValue === 1) {
+            NavContent = {
+                items: getScenarios(),
+                parent: "scenarios"
+            }
+        }
+    };
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -95,9 +137,10 @@ export default function App() {
                     <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)} >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Categories
-                    </Typography>
+                    <Tabs value={value} onChange={handleChange} >
+                        <Tab label="Revision" {...a11yProps(0)} />
+                        <Tab label="Troubleshooting Scenarios" {...a11yProps(1)} />
+                    </Tabs>
                 </Toolbar>
             </AppBar>
             <BrowserRouter >
@@ -108,10 +151,21 @@ export default function App() {
                         </IconButton>
                     </div>
                     <Divider />
-                    <NavList />
+
+                    <ListItem button key={0} component={Link} to="/" >
+                        <ListItemIcon>
+                            <HomeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Home" />
+                    </ListItem>
+
+                    <NavList items={NavContent.items} parent={NavContent.parent} />
+
                 </Drawer>
                 <main className={clsx(classes.content, {[classes.contentShift]: open,})} >
                     <div className={classes.drawerHeader} />
+
+                    {/* Router is here to keep content inside the main element */}
                     <Router />
                 </main>
             </BrowserRouter>

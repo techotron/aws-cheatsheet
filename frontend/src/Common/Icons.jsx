@@ -2,6 +2,7 @@ import React from "react";
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import Info from '@material-ui/icons/Info';
 import ListIcon from '@material-ui/icons/List';
+import BubbleChartIcon from '@material-ui/icons/BubbleChart';
 
 import EC2 from 'react-aws-icons/dist/aws/logo/EC2';
 import RDS from 'react-aws-icons/dist/aws/logo/RDS';
@@ -47,6 +48,8 @@ function GeneralIconMatcher(item) {
         return <Info />
     } else if (item === "checklist") {
         return <ListIcon />
+    } else if (item.includes("scenario")) {
+        return <BubbleChartIcon />
     }
 }
 

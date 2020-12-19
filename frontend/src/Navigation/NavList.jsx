@@ -10,11 +10,8 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
-import getCategories from '../Mocks/MockCategories';
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
-import HomeIcon from '@material-ui/icons/Home';
-
 
 const styles = theme => ({
     root: {
@@ -28,10 +25,11 @@ const styles = theme => ({
 });
 
 class NavList extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            items:  getCategories(),
+            items:  this.props.items,
+            parent: this.props.parent
         }
     }
 
@@ -39,16 +37,19 @@ class NavList extends React.Component {
         this.setState({ [e]: !this.state[e] });
     };
 
+    // TODO: this.props isn't updating when it's changed in App.jsx
+    // componentDidUpdate(prevProps) {
+    //     if (this.props != prevProps) {
+    //         this.setState({items: this.props.items, parent: this.props.parent})
+    //     }
+    //     console.log(prevProps)
+    //     console.log(this.props)
+    // }
+
     render() {
         const { classes } = this.props;
         return (
             <div>
-                <ListItem button key={0} component={Link} to="/" >
-                    <ListItemIcon>
-                        <HomeIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Home" />
-                </ListItem>
                 {this.state.items.categories.map(list => {
                     return (
                         <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
@@ -69,7 +70,7 @@ class NavList extends React.Component {
                                                         {item.subitems.map(
                                                             sitem => {
                                                                 return (
-                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + sitem.name + "/" + list.id + "/" + item.id}>
+                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + this.props.parent + "/" + sitem.name + "/" + list.id + "/" + item.id}>
                                                                         <ListItemIcon>
                                                                             {GeneralIconMatcher(sitem.name)}
                                                                         </ListItemIcon>
@@ -102,7 +103,9 @@ class NavList extends React.Component {
 }
 
 NavList.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    items: Object,
+    parent: String
 };
 
 export default withStyles(styles)(NavList);

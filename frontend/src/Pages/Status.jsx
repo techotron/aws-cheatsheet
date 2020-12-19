@@ -1,13 +1,3 @@
-// import React from 'react';
-// import axios from 'axios';
-
-// export default function Status() {
-//     return(
-//         <h1>This is from the frontend</h1>
-//     )
-// }
-
-
 import React from 'react';
 import axios from 'axios';
 

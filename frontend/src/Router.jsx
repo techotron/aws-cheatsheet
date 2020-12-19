@@ -27,7 +27,7 @@ function Router() {
                 }
             />
             <Route
-                path='/summary/:category/:service'
+                path='/revision/summary/:category/:service'
                 render={(props) =>
                     <ServiceSummary
                         props={props}
@@ -38,7 +38,7 @@ function Router() {
                 }
             />
             <Route
-                path='/checklist/:category/:service'
+                path='/revision/checklist/:category/:service'
                 render={(props) =>
                     <ServiceChecklist
                         props={props}
@@ -49,7 +49,7 @@ function Router() {
                 }
             />
             <Route
-                path='/pricing/:category/:service'
+                path='/revision/pricing/:category/:service'
                 render={(props) =>
                     <ServicePrice
                         props={props}
