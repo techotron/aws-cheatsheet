@@ -12,6 +12,8 @@ import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
+import getCategories from "../Mocks/MockCategories";
+import getScenarios from "../Mocks/MockScenarios";
 
 const styles = theme => ({
     root: {
@@ -28,8 +30,8 @@ class NavList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            items:  this.props.items,
-            parent: this.props.parent
+            items: getCategories(),
+            section: this.props.section
         }
     }
 
@@ -37,14 +39,19 @@ class NavList extends React.Component {
         this.setState({ [e]: !this.state[e] });
     };
 
-    // TODO: this.props isn't updating when it's changed in App.jsx
-    // componentDidUpdate(prevProps) {
-    //     if (this.props != prevProps) {
-    //         this.setState({items: this.props.items, parent: this.props.parent})
-    //     }
-    //     console.log(prevProps)
-    //     console.log(this.props)
-    // }
+    getContent(section) {
+        if (section === "revision") {
+            this.setState({items: getCategories(), section: section})
+        } else if (section === "scenarios") {
+            this.setState({items: getScenarios(), section: section})
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.section != prevProps.section) {
+            this.getContent(this.props.section)
+        }
+    }
 
     render() {
         const { classes } = this.props;
@@ -70,7 +77,7 @@ class NavList extends React.Component {
                                                         {item.subitems.map(
                                                             sitem => {
                                                                 return (
-                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + this.props.parent + "/" + sitem.name + "/" + list.id + "/" + item.id}>
+                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + sitem.name + "/" + list.id + "/" + item.id}>
                                                                         <ListItemIcon>
                                                                             {GeneralIconMatcher(sitem.name)}
                                                                         </ListItemIcon>
@@ -105,7 +112,7 @@ class NavList extends React.Component {
 NavList.propTypes = {
     classes: PropTypes.object.isRequired,
     items: Object,
-    parent: String
+    section: String
 };
 
 export default withStyles(styles)(NavList);

@@ -23,9 +23,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 
-import getCategories from './Mocks/MockCategories';
-import getScenarios from './Mocks/MockScenarios';
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -105,27 +102,15 @@ export default function App() {
         setOpen(false);
     };
 
+    const [value, setValue] = React.useState(0)
+    const [section, setSection] = React.useState("revision")
 
-    const [value, setValue] = React.useState(0);
-
-    var NavContent = {
-        items: getCategories(),
-        parent: "revision"
-    }
-
-    // TODO: Need to change this to state somehow
-    const handleChange = (event, newValue) => {
+    const handleTabChange = (event, newValue) => {
         setValue(newValue);
         if (newValue === 0) {
-            NavContent = {
-                items: getCategories(),
-                parent: "revision"
-            }
+            setSection("revision")
         } else if (newValue === 1) {
-            NavContent = {
-                items: getScenarios(),
-                parent: "scenarios"
-            }
+            setSection("scenarios")
         }
     };
 
@@ -137,7 +122,7 @@ export default function App() {
                     <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)} >
                         <MenuIcon />
                     </IconButton>
-                    <Tabs value={value} onChange={handleChange} >
+                    <Tabs value={value} onChange={handleTabChange} >
                         <Tab label="Revision" {...a11yProps(0)} />
                         <Tab label="Troubleshooting Scenarios" {...a11yProps(1)} />
                     </Tabs>
@@ -159,7 +144,7 @@ export default function App() {
                         <ListItemText primary="Home" />
                     </ListItem>
 
-                    <NavList items={NavContent.items} parent={NavContent.parent} />
+                    <NavList section={section} />
 
                 </Drawer>
                 <main className={clsx(classes.content, {[classes.contentShift]: open,})} >
