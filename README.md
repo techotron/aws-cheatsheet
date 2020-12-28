@@ -1,6 +1,8 @@
 # aws-tutor
 A place for revising AWS things.
 
+![Super-Linter](https://github.com/techotron/aws-tutor/workflows/Super-Linter/badge.svg)
+
 TODO:
 - [x] rename aws-tutor to aws-tutor
 - [x] create parent routes for adding different sections eg `/revision` and `/scenarios`
