@@ -1,5 +1,5 @@
 export default function getMockDatabaseService (service) {
-  if (service == 1) {
+  if (service === '1') {
     return {
       id: 1,
       category: 3,
@@ -15,7 +15,7 @@ export default function getMockDatabaseService (service) {
 * Forth item`,
       priceModel: 'Some information about the pricing model of the service'
     }
-  } else if (service == 2) {
+  } else if (service === '2') {
     return {
       id: 2,
       category: 3,
@@ -31,7 +31,7 @@ export default function getMockDatabaseService (service) {
 * Forth item`,
       priceModel: 'Some information about the pricing model of the service'
     }
-  } else if (service == 3) {
+  } else if (service === '3') {
     return {
       id: 3,
       category: 3,
@@ -47,7 +47,7 @@ export default function getMockDatabaseService (service) {
 * Forth item`,
       priceModel: 'Some information about the pricing model of the service'
     }
-  } else if (service == 4) {
+  } else if (service === '4') {
     return {
       id: 4,
       category: 3,

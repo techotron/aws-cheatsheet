@@ -23,8 +23,8 @@ rules: {
   #   }],
   "indent":
     [
-      "error",
-      4,
+      "warn",
+      2,
       {
         "SwitchCase": 1,
         "VariableDeclarator": "first",

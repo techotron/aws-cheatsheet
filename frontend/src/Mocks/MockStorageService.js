@@ -1,5 +1,5 @@
 export default function getMockStorageService (service) {
-  if (service == 1) {
+  if (service === '1') {
     return {
       id: 1,
       category: 2,
@@ -15,7 +15,7 @@ export default function getMockStorageService (service) {
 * Forth item`,
       priceModel: 'Some information about the pricing model of the service'
     }
-  } else if (service == 2) {
+  } else if (service === '2') {
     return {
       id: 2,
       category: 2,
