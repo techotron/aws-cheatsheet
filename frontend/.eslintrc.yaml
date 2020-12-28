@@ -21,6 +21,19 @@ rules: {
   #   {
   #     allow: ["warn", "error"]
   #   }],
+  "indent":
+    [
+      "error",
+      4,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": "first",
+        "ArrayExpression": "first",
+        "ObjectExpression": 1,
+        "ImportDeclaration": 1,
+        "ignoreComments": false,
+      },
+    ],
   "no-trailing-spaces": "error",
   "react/prop-types": "error",
   "no-unused-vars": "error",
