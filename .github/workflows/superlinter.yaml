@@ -1,8 +1,5 @@
 name: Super-Linter
 
-env:
-  JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
-
 # Run this workflow every time a new commit pushed to your repository
 on: push
 
@@ -26,6 +23,6 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LINTER_RULES_PATH: frontend
-          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yaml
+          # LINTER_RULES_PATH: /
+          # JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.yaml
           # VALIDATE_JAVASCRIPT_ES: true
