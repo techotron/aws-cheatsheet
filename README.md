@@ -1,7 +1,7 @@
 # aws-tutor
 A place for revising AWS things.
 
-TODO: 
+TODO:
 - [x] rename aws-tutor to aws-tutor
 - [x] create parent routes for adding different sections eg `/revision` and `/scenarios`
 - [x] load different NavBar, depending on the section
