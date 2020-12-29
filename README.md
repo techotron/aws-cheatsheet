@@ -19,6 +19,7 @@ TODO:
 - [x] Add github action for linting
 - [x] Fix Linting issues from above (add config for super linter)
 - [ ] Convert TODOs to Github Issues
+- [ ] Fix indentation linting rule to 4 spaces (from 2)
 - [ ] Add content from sre-pathway repo to new tab
 - [ ] Connect Node API to database to serve content
 - [ ] Display content on frontend which has been fetched from the DB by the backend
