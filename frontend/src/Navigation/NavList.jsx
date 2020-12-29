@@ -42,11 +42,11 @@ class NavList extends React.Component {
 
     getContent(section) {
         if (section === "revision") {
-            this.setState({items: getCategories(), section: section})
+            this.setState({ items: getCategories(), section: section })
         } else if (section === "scenarios") {
-            this.setState({items: getScenarios(), section: section})
+            this.setState({ items: getScenarios(), section: section })
         } else if (section === "srepathways") {
-            this.setState({items: getPathwayHeadings(), section: section})
+            this.setState({ items: getPathwayHeadings(), section: section })
         }
     }
 
@@ -68,7 +68,7 @@ class NavList extends React.Component {
                                     <div key={item.id}>
                                         {item.subitems != null ? (
                                             <div key={item.id}>
-                                                <ListItem button key={item.id} onClick={this.handleClick.bind(this,item.name)} >
+                                                <ListItem button key={item.id} onClick={this.handleClick.bind(this, item.name)} >
                                                     <ListItemIcon>
                                                         {AwsIconMatcher(item.name)}
                                                     </ListItemIcon>

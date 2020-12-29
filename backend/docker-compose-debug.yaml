@@ -14,6 +14,6 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
       PGADMIN_CONFIG_LOGIN_BANNER: '"Authorised users only!"'
-      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: 'False'
+      PGADMIN_CONFIG_UPGRADE_CHECK_ENABLED: "False"
     volumes:
       - ./pgadmin/servers.json:/pgadmin4/servers.json

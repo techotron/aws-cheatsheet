@@ -3,9 +3,9 @@ env:
   browser: true
   es6: true
 extends:
-  - 'eslint:recommended'
-  - 'plugin:react/recommended'
-  - 'plugin:react-hooks/recommended'
+  - "eslint:recommended"
+  - "plugin:react/recommended"
+  - "plugin:react-hooks/recommended"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -17,30 +17,28 @@ parserOptions:
 plugins:
   - react
 rules: {
-  # "no-console": ["error",
-  #   {
-  #     allow: ["warn", "error"]
-  #   }],
-  "indent":
-    [
-      "warn",
-      4,
-      {
-        "SwitchCase": 1,
-        "VariableDeclarator": "first",
-        "ArrayExpression": "first",
-        "ObjectExpression": 1,
-        "ImportDeclaration": 1,
-        "ignoreComments": false,
-      },
-    ],
-  "no-trailing-spaces": "error",
-  "react/prop-types": "error",
-  "no-unused-vars": "error",
-  "no-undef": "error"
-}
+    # "no-console": ["error",
+    #   {
+    #     allow: ["warn", "error"]
+    #   }],
+    "indent":
+      [
+        "warn",
+        4,
+        {
+          "SwitchCase": 1,
+          "VariableDeclarator": "first",
+          "ArrayExpression": "first",
+          "ObjectExpression": 1,
+          "ImportDeclaration": 1,
+          "ignoreComments": false,
+        },
+      ],
+    "no-trailing-spaces": "error",
+    "react/prop-types": "error",
+    "no-unused-vars": "error",
+    "no-undef": "error",
+  }
 settings:
   react:
     version: detect
-
-

@@ -15,45 +15,45 @@ import ElasticCache from 'react-aws-icons/dist/aws/logo/ElasticCache'
 import IAM from 'react-aws-icons/dist/aws/logo/IAM'
 import KMS from 'react-aws-icons/dist/aws/logo/KMS'
 
-function AwsIconMatcher (service) {
-  if (service === 'ec2') {
-    return <EC2 />
-  } else if (service === 'rds') {
-    return <RDS />
-  } else if (service === 's3') {
-    return <S3 />
-  } else if (service === 'dynamodb') {
-    return <DynamoDB />
-  } else if (service === 'ecs') {
-    return <ECS />
-  } else if (service === 'aurora') {
-    return <RDS />
-  } else if (service === 'lambda') {
-    return <Lambda />
-  } else if (service === 's3glacier') {
-    return <Glacier />
-  } else if (service === 'elasticcache') {
-    return <ElasticCache />
-  } else if (service === 'iam') {
-    return <IAM />
-  } else if (service === 'kms') {
-    return <KMS />
-  }
+function AwsIconMatcher(service) {
+    if (service === 'ec2') {
+        return <EC2 />
+    } else if (service === 'rds') {
+        return <RDS />
+    } else if (service === 's3') {
+        return <S3 />
+    } else if (service === 'dynamodb') {
+        return <DynamoDB />
+    } else if (service === 'ecs') {
+        return <ECS />
+    } else if (service === 'aurora') {
+        return <RDS />
+    } else if (service === 'lambda') {
+        return <Lambda />
+    } else if (service === 's3glacier') {
+        return <Glacier />
+    } else if (service === 'elasticcache') {
+        return <ElasticCache />
+    } else if (service === 'iam') {
+        return <IAM />
+    } else if (service === 'kms') {
+        return <KMS />
+    }
 }
 
-function GeneralIconMatcher (item) {
-  if (item === 'pricing') {
-    return <MonetizationOnIcon />
-  } else if (item === 'summary') {
-    return <Info />
-  } else if (item === 'checklist') {
-    return <ListIcon />
-  } else if (item.includes('scenario')) {
-    return <BubbleChartIcon />
-  }
+function GeneralIconMatcher(item) {
+    if (item === 'pricing') {
+        return <MonetizationOnIcon />
+    } else if (item === 'summary') {
+        return <Info />
+    } else if (item === 'checklist') {
+        return <ListIcon />
+    } else if (item.includes('scenario')) {
+        return <BubbleChartIcon />
+    }
 }
 
 export {
-  AwsIconMatcher,
-  GeneralIconMatcher
+    AwsIconMatcher,
+    GeneralIconMatcher
 }

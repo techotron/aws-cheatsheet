@@ -8,9 +8,9 @@ export default class Status extends React.Component {
 
     componentDidMount() {
         axios.get(`http://localhost:5000/`)
-        .then(res => {
-            this.setState({ data: res.data });
-        })
+            .then(res => {
+                this.setState({ data: res.data });
+            })
 
         console.log(this.state.data)
     }
