@@ -1,7 +1,7 @@
-# aws-tutor
+# sre-resources
 A place for revising AWS things.
 
-![Super-Linter](https://github.com/techotron/aws-tutor/workflows/Super-Linter/badge.svg)
+![Super-Linter](https://github.com/techotron/sre-resources/workflows/Super-Linter/badge.svg)
 
 ## Context
 ### Revision
@@ -13,7 +13,7 @@ Another option is to have this part static and fetched from the DB - ie, no user
 Another aspect of this app is the scenarios which I'd like to be a place where a user could "Run a scenario" which would deploy a broken app in AWS with the intent for the user to troubleshoot what the issue is and fix it. I'd see this working by the frontend calling a backend API which would deploy the infra. I'd use Terraform as the IaC tool so I can learn TF in more detail. Using auth here would be good, ideally I could link it with Github but I'd need to some reading on what is required as this is a very new area for me.
 
 TODO:
-- [x] rename aws-cheatsheet to aws-tutor
+- [x] rename aws-cheatsheet to sre-resources
 - [x] create parent routes for adding different sections eg `/revision` and `/scenarios`
 - [x] load different NavBar, depending on the section
 - [x] Add github action for linting

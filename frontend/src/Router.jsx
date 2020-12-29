@@ -21,7 +21,7 @@ function Router () {
         path='/info'
         render={() =>
           <span>
-            <h1>Welcome to AWS Tutor info page</h1>
+            <h1>Welcome to SRE Resources info page</h1>
             Example of dynamic env var:
             <h3>API_URL: {window.env.REACT_APP_API_URL}</h3>
           </span>}
