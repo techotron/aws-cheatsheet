@@ -4,9 +4,9 @@ import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 
 class ServiceSummary extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //   super(props)
+    // }
 
     render() {
         return (

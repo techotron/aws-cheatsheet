@@ -4,7 +4,7 @@ const app = express()
 
 app.use(cors())
 
-app.get('/', (req, res, next) => {
+app.get('/', (_req, res) => {
     res.json('Hello from the backend')
 })
 

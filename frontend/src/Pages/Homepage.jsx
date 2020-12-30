@@ -12,6 +12,7 @@ class Homepage extends React.Component {
     }
 
     render() {
+        console.log(React.version);
         return (
             <Typography paragraph>
                 <ReactMarkdown source={this.state.content} />

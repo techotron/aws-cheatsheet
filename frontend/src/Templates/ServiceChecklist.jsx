@@ -5,9 +5,9 @@ import Link from '@material-ui/core/Link'
 import ReactMarkdown from 'react-markdown'
 
 class ServiceChecklist extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //   super(props)
+    // }
 
     render() {
         return (

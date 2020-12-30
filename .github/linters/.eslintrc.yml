@@ -5,10 +5,10 @@ env:
 extends:
   - "eslint:recommended"
   - "plugin:react/recommended"
-  # - "plugin:react-hooks/recommended"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
+parser: "babel-eslint"
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -16,7 +16,6 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-  - react-scripts
 rules: {
     # "no-console": ["error",
     #   {
@@ -24,7 +23,7 @@ rules: {
     #   }],
     "indent":
       [
-        "warn",
+        "error",
         4,
         {
           "SwitchCase": 1,
@@ -42,4 +41,4 @@ rules: {
   }
 settings:
   react:
-    version: detect
+    version: 17.0.1

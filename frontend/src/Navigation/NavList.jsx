@@ -51,7 +51,7 @@ class NavList extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.section != prevProps.section) {
+        if (this.props.section !== prevProps.section) {
             this.getContent(this.props.section)
         }
     }
