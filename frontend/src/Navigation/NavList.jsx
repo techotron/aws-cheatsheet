@@ -13,7 +13,6 @@ import { withStyles } from "@material-ui/core/styles";
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
 import getCategories from "../Mocks/MockCategories";
-import getScenarios from "../Mocks/MockScenarios";
 import getPathwayHeadings from "../Mocks/MockSREPathway";
 
 const styles = theme => ({
@@ -43,8 +42,6 @@ class NavList extends React.Component {
     getContent(section) {
         if (section === "revision") {
             this.setState({ items: getCategories(), section: section })
-        } else if (section === "scenarios") {
-            this.setState({ items: getScenarios(), section: section })
         } else if (section === "srepathways") {
             this.setState({ items: getPathwayHeadings(), section: section })
         }
