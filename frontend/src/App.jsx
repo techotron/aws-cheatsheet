@@ -110,8 +110,6 @@ export default function App() {
         if (newValue === 0) {
             setSection('revision')
         } else if (newValue === 1) {
-            setSection('scenarios')
-        } else if (newValue === 2) {
             setSection('srepathways')
         }
     }
@@ -126,8 +124,7 @@ export default function App() {
                     </IconButton>
                     <Tabs value={value} onChange={handleTabChange}>
                         <Tab label='Revision' {...a11yProps(0)} />
-                        <Tab label='Troubleshooting Scenarios' {...a11yProps(1)} />
-                        <Tab label='SRE Pathway' {...a11yProps(2)} />
+                        <Tab label='SRE Pathway' {...a11yProps(1)} />
                     </Tabs>
                 </Toolbar>
             </AppBar>
