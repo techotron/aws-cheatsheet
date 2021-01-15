@@ -31,7 +31,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./frontend
-          file: ./Dockerfile
           push: true
           tags: techotron/sre-resources-frontend:latest
       -
