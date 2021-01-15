@@ -2,7 +2,10 @@ name: Docker
 
 on:
   push:
-    branches: main
+    branches: 
+      - main
+    paths:
+      - "frontend/**"
 
 jobs:
   docker:
@@ -23,6 +26,7 @@ jobs:
       -
         name: Build and push frontend
         id: docker_build
+        working-directory: frontend
         uses: docker/build-push-action@v2
         with:
           push: true
