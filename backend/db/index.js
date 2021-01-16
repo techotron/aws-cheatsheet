@@ -4,7 +4,7 @@ const pool = new Pool({
     user: process.env.DB_USER,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
-    // port: 1234
+    // port: 1234 // Intentionally wrong port for testing DB conn failure
     port: process.env.DB_PORT
 })
 
@@ -13,3 +13,4 @@ module.exports = {
     return pool.query(text, params, callback)
   },
 }
+
