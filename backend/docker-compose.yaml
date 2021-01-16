@@ -8,6 +8,12 @@ services:
       - ./:/usr/src/app:rw
     depends_on:
       - "db"
+    environment:
+      PGUSER: ${DB_USER}
+      PGHOST: ${DB_HOST}
+      PGPASSWORD: ${DB_PASSWORD}
+      PGDATABASE: ${DB_NAME}
+      PGPORT: 5432
   db:
     image: postgres:9.6
     restart: always
