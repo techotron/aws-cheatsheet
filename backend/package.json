@@ -14,6 +14,7 @@
         "db-migrate": "^0.11.11",
         "express": "^4.17.1",
         "express-promise-router": "^4.0.1",
-        "pg": "^8.5.1"
+        "pg": "^8.5.1",
+        "postgres-migrations": "^5.1.1"
     }
 }
