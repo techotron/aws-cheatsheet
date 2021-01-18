@@ -7,7 +7,7 @@ export default class Status extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/`)
+        axios.get(`http://localhost:5000/status`)
             .then(res => {
                 this.setState({ data: res.data });
             })
@@ -17,7 +17,10 @@ export default class Status extends React.Component {
 
     render() {
         return (
-            <h1>{this.state.data}</h1>
+            <p>
+                <b>DB Connection Status: </b>{this.state.data.DbConnectionStatus}<br></br>
+                <b>DB Timestamp: </b>{this.state.data.DbTimestamp}
+            </p>
         )
     }
 }
