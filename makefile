@@ -21,4 +21,5 @@ lint:
 		-e RUN_LOCAL=true \
 		-v $(shell pwd):/tmp/lint \
 		-e VALIDATE_JAVASCRIPT_STANDARD=false \
+		-e VALIDATE_BASH=false \
 			github/super-linter:latest

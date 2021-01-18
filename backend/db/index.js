@@ -8,7 +8,7 @@ const dbDetails = {
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
     // port: 1234 // Intentionally wrong port for testing DB conn failure
-    port: process.env.DB_PORT    
+    port: process.env.DB_PORT
 }
 
 const pool = new Pool(dbDetails)
@@ -19,7 +19,7 @@ const sleep = promisify(setTimeout)
 async function migrateUp() {
     client.connect()
     var retryCounter = 5
-    for (i = 0; i < retryCounter; i ++) {
+    for (var i = 0; i < retryCounter; i ++) {
         try {
             await migrate({client}, "migration")
             console.log('Finished DB migration successfully')
