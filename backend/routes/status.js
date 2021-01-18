@@ -12,7 +12,7 @@ router.get('/status', async (req, res) => {
         res.send(JSON.stringify({
             DbConnectionStatus: 'OK',
             DbTimestamp: rows[0]['now']
-        }))  
+        }))
     } catch (err) {
         console.error('Failed to connect to database')
         res.send(JSON.stringify({
