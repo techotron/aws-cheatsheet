@@ -19,7 +19,7 @@ services:
         "./wait-for-it.sh",
         "db:5432",
         "--",
-        "node",
+        "nodemon",
         "app.js"
       ]      
   db:

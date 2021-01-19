@@ -10,7 +10,7 @@ start-frontend:
 
 start-backend:
 	cd backend && \
-	$(MAKE) run-dev
+	$(MAKE) run-backend
 
 start-pgadmin:
 	cd backend && \
