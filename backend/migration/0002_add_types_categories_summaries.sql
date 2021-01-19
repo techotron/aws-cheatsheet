@@ -28,7 +28,7 @@ VALUES
     (11, 1, 4, 'kms', 'KMS');
 
 -- Add summaries
-INSERT INTO summaries (summary_id, type_id, sub_category_id, summary, use_case)
+INSERT INTO summaries (summary_id, type_id, parent_category_id, summary, use_case)
 VALUES
     (1, 1, 1, 'This is the summary for the EC2 service', 'Use cases - when you want a virtual machine'),
     (2, 1, 1, 'This is the summary for the ECS service', 'Use cases - when you want to run containers'),
@@ -43,7 +43,7 @@ VALUES
     (11, 1, 4, 'This is the summary for the KMS service', 'Use cases - encryption/decryption, key managed service');
 
 -- Add checklists
-INSERT INTO revision_checklists (revision_checklist_id, type_id, sub_category_id, checklist)
+INSERT INTO checklists (revision_checklist_id, type_id, parent_category_id, checklist)
 VALUES
     (1, 1, 1, '## Markdown list of key facts
 * This is going to be a markdown pointed list
@@ -102,7 +102,7 @@ VALUES
 * Forth item');
 
 -- Add pricing models
-INSERT INTO pricing_models (pricing_model_id, type_id, sub_category_id, pricing_model)
+INSERT INTO pricing_models (pricing_model_id, type_id, parent_category_id, pricing_model)
 VALUES
     (1, 1, 1, 'Some information about the pricing model of the service'),
     (2, 1, 1, 'Some information about the pricing model of the service'),
