@@ -20,11 +20,11 @@ async function getDbMigrationVersion() {
 }
 
 async function getDbTableInfo() {
-    _categoriesCount = await getNumberOfCategories()
-    _migrationsInfo = await getDbMigrationVersion()
+    const _categoriesCount = await getNumberOfCategories()
+    const _migrationsInfo = await getDbMigrationVersion()
 
 
-    _dbMigrationsInfo = {
+    const _dbMigrationsInfo = {
         DbVersion: _migrationsInfo.rows[0]['id'],
         ScriptName: _migrationsInfo.rows[0]['name'],
         ScriptHash: _migrationsInfo.rows[0]['hash'],
