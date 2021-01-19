@@ -37,7 +37,7 @@ async function getDbTableInfo() {
     }
 }
 
-router.get('/status', async (req, res) => {
+router.get('/db', async (req, res) => {
     try {
         const _dbTime = await getDbTime()
         const _dbTableInfo = await getDbTableInfo()
@@ -47,6 +47,22 @@ router.get('/status', async (req, res) => {
             DbConnectionStatus: 'OK',
             DbTimestamp: _dbTime.rows[0]['now'],
             DbInfo: [_dbTableInfo]
+        }))
+    } catch (err) {
+        console.error('Failed to connect to database')
+        res.send(JSON.stringify({
+            DbConnectionStatus: 'DOWN',
+            Error: err
+        }))
+    }
+})
+
+router.get('/', async (req, res) => {
+    try {
+        const _dbTime = await db.query('SELECT NOW();')
+        res.send(JSON.stringify({
+            DbConnectionStatus: 'OK',
+            DbTimestamp: _dbTime.rows[0]['now']
         }))
     } catch (err) {
         console.error('Failed to connect to database')
