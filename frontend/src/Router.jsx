@@ -34,7 +34,6 @@ function Router() {
                         props={props}
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}
-                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
