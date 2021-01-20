@@ -25,7 +25,6 @@ class ServiceSummary extends React.Component {
         if (this.props.subCategory !== prevProps.subCategory) {
             this.getCategory(this.props.subCategory)
         }
-
     }
 
     render() {
