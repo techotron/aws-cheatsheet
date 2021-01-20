@@ -54,7 +54,7 @@ async function getAllCategories() {
     return _allCategories
 }
 
-
+// TODO: Change this to return single subcategory with param query like: url/categories/:categoryId/:subCategoryId
 async function getCategoryInfo(category_id) {
     const _getCategoryInfoQuery = `
     SELECT
