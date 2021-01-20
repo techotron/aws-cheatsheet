@@ -8,29 +8,46 @@ module.exports = router
 
 async function getAllCategories() {
 
-
-
-// SELECT
-// 	json_build_object(
-// 		'categories', json_agg(
-// 			json_build_object(
-// 				'category_id', c.category_id,
-// 				'title', c.category_name
-// 			)
-// 		)
-// 	) categories
-// FROM categories c
-
-// -- https://stackoverflow.com/questions/42222968/create-nested-json-from-sql-query-postgres-9-4
-
-
-
     const _getAllCategoriesQuery = `
     SELECT
-        *,
-        (SELECT sub_categories.sub_items::json)
-    FROM categories
-    LEFT JOIN sub_categories ON categories.category_id = sub_categories.category_id;`
+        json_build_object(
+            'categories', json_agg(
+                json_build_object(
+                    'category_id', c.category_id,
+                    'title', c.category_name,
+                    'items', sub_category_items
+                )
+            )
+        ) categories
+    FROM categories c
+    LEFT JOIN (
+        SELECT 
+            sc.category_id,
+            json_agg(
+                json_build_object(
+                    'sub_category_id', sc.sub_category_id,
+                    'sub_category_name', sc.sub_category_name,
+                    'sub_category_title', sc.sub_category_title,
+                    'sub_items', (
+                        SELECT 
+                            json_agg(
+                                json_build_object(
+                                    'sub_item_id', si.sub_item_id,
+                                    'sub_item_name', si.sub_item_name,
+                                    'sub_item_title', si.sub_item_title
+                                )
+                            ) subitems
+                        FROM sub_items si
+                        WHERE sub_item_id IN (
+                            SELECT UNNEST(sub_items) AS sub_item FROM sub_categories WHERE sub_category_id = sc.sub_category_id
+                        )
+                    )
+                )
+            ) sub_category_items
+        FROM sub_categories sc
+        GROUP BY category_id
+    ) sc ON c.category_id = sc.category_id;
+`
 
     const _allCategories = await db.query(_getAllCategoriesQuery)
     return _allCategories
