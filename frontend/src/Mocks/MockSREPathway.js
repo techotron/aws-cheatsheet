@@ -34,7 +34,7 @@ export default function getPathwayHeadings() {
                                 sub_item_title: 'Subsection 1'
                             }
                         ]
-                    }                    
+                    }
                 ]
             },
             {
