@@ -12,7 +12,6 @@ import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
-// import getCategories from "../Mocks/MockCategories";
 import getPathwayHeadings from "../Mocks/MockSREPathway";
 import axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -46,7 +45,7 @@ class NavList extends React.Component {
     getContent(section) {
         if (section === "revision") {
             this.setState({ section: section})
-            this.getCategoriesFromBackend()
+            this.getAllCategories()
         } else if (section === "srepathways") {
             this.setState({ items: getPathwayHeadings(), section: section })
         }
@@ -59,10 +58,10 @@ class NavList extends React.Component {
     }
 
     componentDidMount() {
-        this.getCategoriesFromBackend()
+        this.getAllCategories()
     }
 
-    getCategoriesFromBackend = async () => {
+    getAllCategories = async () => {
         const res = await axios.get(`http://localhost:5000/categories`);
         this.setState({ items: res.data[0].categories, loaded: true });
     }

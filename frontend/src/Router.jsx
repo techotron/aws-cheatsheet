@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+
 import Homepage from './Pages/Homepage'
 import ServiceSummary from './Templates/ServiceSummary'
 import ServiceChecklist from './Templates/ServiceChecklist'
@@ -27,33 +28,33 @@ function Router() {
                     </span>}
             />
             <Route
-                path='/revision/summary/:category/:service'
+                path='/revision/summary/:category/:subCategory'
                 render={(props) =>
                     <ServiceSummary
                         props={props}
                         category={props.match.params.category}
-                        service={props.match.params.service}
-                        data={getCategoryData(props.match.params.category, props.match.params.service)}
+                        subCategory={props.match.params.subCategory}
+                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
-                path='/revision/checklist/:category/:service'
+                path='/revision/checklist/:category/:subCategory'
                 render={(props) =>
                     <ServiceChecklist
                         props={props}
                         category={props.match.params.category}
-                        service={props.match.params.service}
-                        data={getCategoryData(props.match.params.category, props.match.params.service)}
+                        subCategory={props.match.params.subCategory}
+                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
-                path='/revision/pricing/:category/:service'
+                path='/revision/pricing/:category/:subCategory'
                 render={(props) =>
                     <ServicePrice
                         props={props}
                         category={props.match.params.category}
-                        service={props.match.params.service}
-                        data={getCategoryData(props.match.params.category, props.match.params.service)}
+                        subCategory={props.match.params.subCategory}
+                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
