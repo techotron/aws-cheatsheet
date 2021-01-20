@@ -54,29 +54,30 @@ async function getAllCategories() {
     return _allCategories
 }
 
-// TODO: Change this to return single subcategory with param query like: url/categories/:categoryId/:subCategoryId
-async function getCategoryInfo(category_id) {
+async function getCategoryInfo(category_id, sub_category_id) {
     const _getCategoryInfoQuery = `
     SELECT
-        categories.category_id,
-        categories.category_name,
+        c.category_id,
+        c.category_name,
         category_types.category_type_name,
-        sub_categories.sub_category_id,
-        sub_categories.sub_category_name,
-        sub_categories.sub_category_title,
+        sc.sub_category_id,
+        sc.sub_category_name,
+        sc.sub_category_title,
         summaries.summary,
         summaries.use_case,
         checklists.checklist,
         pricing_models.pricing_model
-    FROM categories
-    LEFT JOIN category_types ON categories.type_id = category_types.category_type_id
-    LEFT JOIN sub_categories ON categories.category_id = sub_categories.category_id
-    LEFT JOIN summaries ON sub_categories.sub_category_id = summaries.summary_id
-    LEFT JOIN checklists ON sub_categories.sub_category_id = checklists.checklist_id
-    LEFT JOIN pricing_models ON sub_categories.sub_category_id = pricing_models.pricing_model_id
-    WHERE categories.category_id = $1;`
+    FROM categories c
+    LEFT JOIN category_types ON c.type_id = category_types.category_type_id
+    LEFT JOIN sub_categories sc ON c.category_id = sc.category_id
+    LEFT JOIN summaries ON sc.sub_category_id = summaries.summary_id
+    LEFT JOIN checklists ON sc.sub_category_id = checklists.checklist_id
+    LEFT JOIN pricing_models ON sc.sub_category_id = pricing_models.pricing_model_id
+    WHERE 
+        c.category_id = $1
+        AND sc.sub_category_id = $2;`
 
-    return await db.query(_getCategoryInfoQuery, [category_id])
+    return await db.query(_getCategoryInfoQuery, [category_id, sub_category_id])
 }
 
 router.get('/', async (req, res) => {
@@ -93,9 +94,9 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/category/:id', async (req, res) => {
+router.get('/:categoryId/:subCategoryId', async (req, res) => {
     try {
-        const _categoryInfo = await getCategoryInfo(req.params.id)
+        const _categoryInfo = await getCategoryInfo(req.params.categoryId, req.params.subCategoryId)
         res.send(JSON.stringify(_categoryInfo.rows))
     } catch (err) {
         res.send(JSON.stringify({

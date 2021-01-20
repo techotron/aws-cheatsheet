@@ -11,19 +11,19 @@ class ServiceSummary extends React.Component {
         this.state = {
             category: this.props.category,
             subCategory: this.props.subCategory,
-            categoryData: this.getCategory(1),
+            categoryData: this.getCategory(this.props.category, this.props.subCategory),
             loaded: false
         }
     }
 
-    getCategory = async (subCategoryId) => {
-        const res = await axios.get(`http://localhost:5000/categories/category/` + subCategoryId)
+    getCategory = async (categoryId, subCategoryId) => {
+        const res = await axios.get(`http://localhost:5000/categories/${categoryId}/${subCategoryId}`)
         this.setState({ categoryData: res.data, loaded: true });
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.subCategory !== prevProps.subCategory) {
-            this.getCategory(this.props.subCategory)
+            this.getCategory(this.props.category, this.props.subCategory)
         }
     }
 
@@ -36,14 +36,13 @@ class ServiceSummary extends React.Component {
                             summary
                         </Link>
                         <Link color='inherit'>
-                            {this.props.data.categoryName}
-                            {console.log(this.state.categoryData)}
+                            {this.state.categoryData[0].category_name}
                         </Link>
-                        <Typography color='textPrimary'>{this.props.data.name}</Typography>
+                        <Typography color='textPrimary'>{this.state.categoryData[0].sub_category_name}</Typography>
                     </Breadcrumbs>
                     <span>
                         <h1>This is where some information about AWS services will go.</h1>
-                        {this.props.data.summary}
+                        {this.state.categoryData[0].summary}
                     </span>
                 </div> : <div><CircularProgress /></div>
         )
