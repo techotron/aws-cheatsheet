@@ -13,19 +13,19 @@ VALUES
     (4, 1, 'security');
 
 -- Add sub categories
-INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title)
+INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title, sub_items)
 VALUES
-    (1, 1, 'ec2', 'EC2'),
-    (2, 1, 'ecs', 'ECS'),
-    (3, 1, 'lambda', 'Lambda'),
-    (4, 2, 's3', 'S3'),
-    (5, 2, 's3glacier', 'S3 Glacier'),
-    (6, 3, 'rds', 'RDS'),
-    (7, 3, 'dynamodb', 'DynamoDB'),
-    (8, 3, 'aurora', 'Aurora'),
-    (9, 3, 'elasticcache', 'ElasticCache'),
-    (10, 4, 'iam', 'IAM'),
-    (11, 4, 'kms', 'KMS');
+    (1, 1, 'ec2', 'EC2', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (2, 1, 'ecs', 'ECS', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (3, 1, 'lambda', 'Lambda', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (4, 2, 's3', 'S3', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (5, 2, 's3glacier', 'S3 Glacier', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (6, 3, 'rds', 'RDS', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (7, 3, 'dynamodb', 'DynamoDB', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (8, 3, 'aurora', 'Aurora', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (9, 3, 'elasticcache', 'ElasticCache', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]'),
+    (10, 4, 'iam', 'IAM', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"}]'),
+    (11, 4, 'kms', 'KMS', '[{"id": 1, "name": "summary", "title": "Summary"},{"id": 2, "name": "checklist", "title": "Revision Checklist"},{"id": 3, "name": "pricing", "title": "Pricing Model"}]');
 
 -- Add summaries
 INSERT INTO summaries (summary_id, summary, use_case)

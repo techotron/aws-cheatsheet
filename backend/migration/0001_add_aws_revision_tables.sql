@@ -15,6 +15,7 @@ create table if not exists sub_categories(
     category_id int not null,
     sub_category_name varchar(50) unique not null,
     sub_category_title varchar(50) unique not null,
+    sub_items text,
     constraint fk_subcategory_in_category foreign key(category_id) references categories(category_id)
 );
 

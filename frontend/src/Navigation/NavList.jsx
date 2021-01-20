@@ -14,6 +14,7 @@ import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
 import getCategories from "../Mocks/MockCategories";
 import getPathwayHeadings from "../Mocks/MockSREPathway";
+import axios from 'axios';
 
 const styles = theme => ({
     root: {
@@ -31,7 +32,8 @@ class NavList extends React.Component {
         super(props)
         this.state = {
             items: getCategories(),
-            section: this.props.section
+            section: this.props.section,
+            newItems: []
         }
     }
 
@@ -50,6 +52,10 @@ class NavList extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.section !== prevProps.section) {
             this.getContent(this.props.section)
+            axios.get(`http://localhost:5000/categories`)
+            .then(res => {
+                this.setState({newItems: res.data})
+            })
         }
     }
 
@@ -57,7 +63,30 @@ class NavList extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                {this.state.items.categories.map(list => {
+
+
+                {this.state.newItems.map(list => {
+                    return (
+                        <List className={classes.root} key={list.category_id} subheader={<ListSubheader>{list.category_name}</ListSubheader>} >
+                            {/* {console.log(this.state.newItems)} */}
+                        <Divider key={list.category_id} absolute />
+                        </List>
+                    );
+                })}
+
+
+                {/* {this.state.items.categories.map(list => {
+                    return (
+                        <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
+                        
+                        <Divider key={list.id} absolute />
+                        </List>
+                    );
+                })} */}
+
+
+
+                {/* {this.state.items.categories.map(list => {
                     return (
                         <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
                             {list.items.map(item => {
@@ -103,7 +132,7 @@ class NavList extends React.Component {
                             <Divider key={list.id} absolute />
                         </List>
                     );
-                })}
+                })} */}
             </div>
         );
     }
