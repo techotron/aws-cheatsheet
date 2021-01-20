@@ -8,6 +8,7 @@ module.exports = router
 
 async function getAllCategories() {
 
+    // Useful source of help for below query: https://stackoverflow.com/questions/42222968/create-nested-json-from-sql-query-postgres-9-4
     const _getAllCategoriesQuery = `
     SELECT
         json_build_object(
