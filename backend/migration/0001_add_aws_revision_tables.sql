@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS sub_categories(
 CREATE TABLE IF NOT EXISTS sub_items(
     sub_item_id INT PRIMARY KEY,
     sub_item_name VARCHAR(30),
-    sub_item_title VARCHAR(30)
+    sub_item_title VARCHAR(30),
+    sub_item_isEnabled BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS summaries(

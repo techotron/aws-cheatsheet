@@ -13,11 +13,11 @@ VALUES
     (4, 1, 'security');
 
 -- Add sub items
-INSERT INTO sub_items (sub_item_id, sub_item_name, sub_item_title)
+INSERT INTO sub_items (sub_item_id, sub_item_name, sub_item_title, sub_item_isEnabled)
 VALUES
-    (1, 'summary', 'Summary'),
-    (2, 'checklist', 'Revision Checklist'),
-    (3, 'pricing', 'Pricing Model');
+    (1, 'summary', 'Summary', TRUE),
+    (2, 'checklist', 'Revision Checklist', TRUE),
+    (3, 'pricing', 'Pricing Model', FALSE);
 
 -- Add sub categories
 INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title, sub_items)
