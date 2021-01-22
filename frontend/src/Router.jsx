@@ -5,7 +5,6 @@ import Homepage from './Pages/Homepage'
 import ServiceSummary from './Templates/ServiceSummary'
 import ServiceChecklist from './Templates/ServiceChecklist'
 import ServicePrice from './Templates/ServicePrice'
-import { getCategoryData } from './Templates/CategoryData'
 import Status from './Pages/Status'
 
 function Router() {
@@ -43,7 +42,6 @@ function Router() {
                         props={props}
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}
-                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
@@ -53,7 +51,6 @@ function Router() {
                         props={props}
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}
-                        data={getCategoryData(props.match.params.category, props.match.params.subCategory)}
                     />}
             />
             <Route
