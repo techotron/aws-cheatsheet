@@ -27,7 +27,7 @@ function Router() {
                     </span>}
             />
             <Route
-                path='/revision/summary/:category/:subCategory'
+                path='/saacert/summary/:category/:subCategory'
                 render={(props) =>
                     <ServiceSummary
                         props={props}
@@ -36,7 +36,7 @@ function Router() {
                     />}
             />
             <Route
-                path='/revision/checklist/:category/:subCategory'
+                path='/saacert/checklist/:category/:subCategory'
                 render={(props) =>
                     <ServiceChecklist
                         props={props}
@@ -45,7 +45,7 @@ function Router() {
                     />}
             />
             <Route
-                path='/revision/pricing/:category/:subCategory'
+                path='/saacert/pricing/:category/:subCategory'
                 render={(props) =>
                     <ServicePrice
                         props={props}

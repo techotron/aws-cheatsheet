@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS sub_categories(
     category_id INT NOT NULL,
     sub_category_name VARCHAR(50) UNIQUE NOT NULL,
     sub_category_title VARCHAR(50) UNIQUE NOT NULL,
-    -- sub_items TEXT,
     sub_items INT[],
     CONSTRAINT fk_subcategory_in_category FOREIGN KEY(category_id) REFERENCES categories(category_id)
 );

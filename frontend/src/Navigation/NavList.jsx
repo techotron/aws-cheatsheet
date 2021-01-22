@@ -43,7 +43,7 @@ class NavList extends React.Component {
     };
 
     getContent(section) {
-        if (section === "revision") {
+        if (section === "saacert") {
             this.setState({ section: section})
             this.getAllCategories()
         } else if (section === "srepathways") {

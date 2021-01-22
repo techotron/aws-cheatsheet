@@ -34,7 +34,7 @@ class ServiceChecklist extends React.Component {
                 <div>
                     <Breadcrumbs aria-label='breadcrumb'>
                         <Link color='inherit' href='/'>
-                            summary
+                            revision checklist
                         </Link>
                         <Link color='inherit'>
                             {this.state.categoryData[0].category_name}

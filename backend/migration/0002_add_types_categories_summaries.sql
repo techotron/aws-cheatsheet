@@ -1,10 +1,10 @@
 -- Add category types
 INSERT INTO category_types (category_type_id, category_type_name)
 VALUES
-    (1, 'revision'),
+    (1, 'saacert'),
     (2, 'srepathways');
 
--- Add revision categories
+-- Add initial AWS SAA categories
 INSERT INTO categories (category_id, type_id, category_name)
 VALUES
     (1, 1, 'compute'),

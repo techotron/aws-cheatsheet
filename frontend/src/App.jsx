@@ -103,12 +103,12 @@ export default function App() {
     }
 
     const [value, setValue] = React.useState(0)
-    const [section, setSection] = React.useState('revision')
+    const [section, setSection] = React.useState('saacert')
 
     const handleTabChange = (event, newValue) => {
         setValue(newValue)
         if (newValue === 0) {
-            setSection('revision')
+            setSection('saacert')
         } else if (newValue === 1) {
             setSection('srepathways')
         }
@@ -123,7 +123,7 @@ export default function App() {
                         <MenuIcon />
                     </IconButton>
                     <Tabs value={value} onChange={handleTabChange}>
-                        <Tab label='Revision' {...a11yProps(0)} />
+                        <Tab label='Solutions Architect Associate' {...a11yProps(0)} />
                         <Tab label='SRE Pathway' {...a11yProps(1)} />
                     </Tabs>
                 </Toolbar>
