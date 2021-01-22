@@ -15,7 +15,8 @@ async function getAllCategories() {
             'categories', json_agg(
                 json_build_object(
                     'category_id', c.category_id,
-                    'title', c.category_name,
+                    'name', c.category_name,
+                    'title', c.category_title,
                     'items', sub_category_items
                 )
             )
@@ -29,6 +30,7 @@ async function getAllCategories() {
                     'sub_category_id', sc.sub_category_id,
                     'sub_category_name', sc.sub_category_name,
                     'sub_category_title', sc.sub_category_title,
+                    'sub_category_icon', sc.sub_category_icon,
                     'sub_items', (
                         SELECT 
                             json_agg(
@@ -59,21 +61,18 @@ async function getCategoryInfo(category_id, sub_category_id) {
     const _getCategoryInfoQuery = `
     SELECT
         c.category_id,
+        c.category_title,
         c.category_name,
         category_types.category_type_name,
         sc.sub_category_id,
         sc.sub_category_name,
         sc.sub_category_title,
-        summaries.summary,
-        summaries.use_case,
-        checklists.checklist,
-        pricing_models.pricing_model
+        sc.sub_category_icon,
+        summaries.summary
     FROM categories c
     LEFT JOIN category_types ON c.type_id = category_types.category_type_id
     LEFT JOIN sub_categories sc ON c.category_id = sc.category_id
     LEFT JOIN summaries ON sc.sub_category_id = summaries.summary_id
-    LEFT JOIN checklists ON sc.sub_category_id = checklists.checklist_id
-    LEFT JOIN pricing_models ON sc.sub_category_id = pricing_models.pricing_model_id
     WHERE 
         c.category_id = $1
         AND sc.sub_category_id = $2;`

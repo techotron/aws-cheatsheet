@@ -3,8 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 
 import Homepage from './Pages/Homepage'
 import ServiceSummary from './Templates/ServiceSummary'
-import ServiceChecklist from './Templates/ServiceChecklist'
-import ServicePrice from './Templates/ServicePrice'
 import Status from './Pages/Status'
 
 function Router() {
@@ -27,32 +25,14 @@ function Router() {
                     </span>}
             />
             <Route
-                path='/saacert/summary/:category/:subCategory'
+                path='/saacert/:category/:subCategory'
                 render={(props) =>
                     <ServiceSummary
                         props={props}
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}
                     />}
-            />
-            <Route
-                path='/saacert/checklist/:category/:subCategory'
-                render={(props) =>
-                    <ServiceChecklist
-                        props={props}
-                        category={props.match.params.category}
-                        subCategory={props.match.params.subCategory}
-                    />}
-            />
-            <Route
-                path='/saacert/pricing/:category/:subCategory'
-                render={(props) =>
-                    <ServicePrice
-                        props={props}
-                        category={props.match.params.category}
-                        subCategory={props.match.params.subCategory}
-                    />}
-            />
+            />         
             <Route
                 exact
                 path='/status'
