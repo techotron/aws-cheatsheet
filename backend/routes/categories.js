@@ -42,6 +42,7 @@ async function getAllCategories() {
                         WHERE sub_item_id IN (
                             SELECT UNNEST(sub_items) AS sub_item FROM sub_categories WHERE sub_category_id = sc.sub_category_id
                         )
+                        AND sub_item_isEnabled = TRUE
                     )
                 )
             ) sub_category_items
