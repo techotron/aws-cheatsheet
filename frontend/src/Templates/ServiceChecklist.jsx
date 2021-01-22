@@ -18,7 +18,7 @@ class ServiceChecklist extends React.Component {
     }
 
     getCategory = async (categoryId, subCategoryId) => {
-        const res = await axios.get(`http://localhost:5000/categories/${categoryId}/${subCategoryId}`)
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories/${categoryId}/${subCategoryId}`)
         this.setState({ categoryData: res.data, loaded: true });
     }
 

@@ -62,7 +62,7 @@ class NavList extends React.Component {
     }
 
     getAllCategories = async () => {
-        const res = await axios.get(`http://localhost:5000/categories`);
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories`);
         this.setState({ items: res.data[0].categories, loaded: true });
     }
 

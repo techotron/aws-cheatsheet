@@ -18,7 +18,7 @@ class ServiceSummary extends React.Component {
     }
 
     getCategory = async (categoryId, subCategoryId) => {
-        const res = await axios.get(`http://localhost:5000/categories/${categoryId}/${subCategoryId}`)
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories/${categoryId}/${subCategoryId}`)
         this.setState({ categoryData: res.data, loaded: true });
     }
 
@@ -34,7 +34,7 @@ class ServiceSummary extends React.Component {
                 <div>
                     <Breadcrumbs aria-label='breadcrumb'>
                         <Link color='inherit' href='/'>
-                            summary
+                            saacert
                         </Link>
                         <Link color='inherit'>
                             {this.state.categoryData[0].category_name}

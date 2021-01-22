@@ -22,6 +22,7 @@ function Router() {
                         <h1>Welcome to SRE Resources info page</h1>
             Example of dynamic env var:
                         <h3>API_URL: {window.env.REACT_APP_API_URL}</h3>
+                        <h3>BACKEND_URL: {window.env.REACT_APP_BACKEND_API}</h3>
                     </span>}
             />
             <Route
