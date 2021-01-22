@@ -33,7 +33,7 @@ function Router() {
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}
                     />}
-            />         
+            />
             <Route
                 exact
                 path='/status'
