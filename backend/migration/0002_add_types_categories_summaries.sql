@@ -12,20 +12,27 @@ VALUES
     (3, 1, 'databases'),
     (4, 1, 'security');
 
--- Add sub categories
-INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title)
+-- Add sub items
+INSERT INTO sub_items (sub_item_id, sub_item_name, sub_item_title, sub_item_isEnabled)
 VALUES
-    (1, 1, 'ec2', 'EC2'),
-    (2, 1, 'ecs', 'ECS'),
-    (3, 1, 'lambda', 'Lambda'),
-    (4, 2, 's3', 'S3'),
-    (5, 2, 's3glacier', 'S3 Glacier'),
-    (6, 3, 'rds', 'RDS'),
-    (7, 3, 'dynamodb', 'DynamoDB'),
-    (8, 3, 'aurora', 'Aurora'),
-    (9, 3, 'elasticcache', 'ElasticCache'),
-    (10, 4, 'iam', 'IAM'),
-    (11, 4, 'kms', 'KMS');
+    (1, 'summary', 'Summary', TRUE),
+    (2, 'checklist', 'Revision Checklist', TRUE),
+    (3, 'pricing', 'Pricing Model', FALSE);
+
+-- Add sub categories
+INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title, sub_items)
+VALUES
+    (1, 1, 'ec2', 'EC2', ARRAY[1, 2, 3]),
+    (2, 1, 'ecs', 'ECS', ARRAY[1, 2, 3]),
+    (3, 1, 'lambda', 'Lambda', ARRAY[1, 2, 3]),
+    (4, 2, 's3', 'S3', ARRAY[1, 2, 3]),
+    (5, 2, 's3glacier', 'S3 Glacier', ARRAY[1, 2, 3]),
+    (6, 3, 'rds', 'RDS', ARRAY[1, 2, 3]),
+    (7, 3, 'dynamodb', 'DynamoDB', ARRAY[1, 2, 3]),
+    (8, 3, 'aurora', 'Aurora', ARRAY[1, 2, 3]),
+    (9, 3, 'elasticcache', 'ElasticCache', ARRAY[1, 2, 3]),
+    (10, 4, 'iam', 'IAM', ARRAY[1, 2]),
+    (11, 4, 'kms', 'KMS', ARRAY[1, 2, 3]);
 
 -- Add summaries
 INSERT INTO summaries (summary_id, summary, use_case)

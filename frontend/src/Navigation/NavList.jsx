@@ -12,8 +12,9 @@ import Divider from "@material-ui/core/Divider";
 import { withStyles } from "@material-ui/core/styles";
 import { AwsIconMatcher, GeneralIconMatcher } from '../Common/Icons';
 import { Link } from 'react-router-dom';
-import getCategories from "../Mocks/MockCategories";
 import getPathwayHeadings from "../Mocks/MockSREPathway";
+import axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = theme => ({
     root: {
@@ -26,12 +27,14 @@ const styles = theme => ({
     }
 });
 
+
 class NavList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: getCategories(),
-            section: this.props.section
+            items: {},
+            section: this.props.section,
+            loaded: false
         }
     }
 
@@ -41,7 +44,8 @@ class NavList extends React.Component {
 
     getContent(section) {
         if (section === "revision") {
-            this.setState({ items: getCategories(), section: section })
+            this.setState({ section: section})
+            this.getAllCategories()
         } else if (section === "srepathways") {
             this.setState({ items: getPathwayHeadings(), section: section })
         }
@@ -53,58 +57,68 @@ class NavList extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.getAllCategories()
+    }
+
+    getAllCategories = async () => {
+        const res = await axios.get(`http://localhost:5000/categories`);
+        this.setState({ items: res.data[0].categories, loaded: true });
+    }
+
     render() {
         const { classes } = this.props;
         return (
-            <div>
-                {this.state.items.categories.map(list => {
-                    return (
-                        <List className={classes.root} key={list.id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
-                            {list.items.map(item => {
-                                return (
-                                    <div key={item.id}>
-                                        {item.subitems != null ? (
-                                            <div key={item.id}>
-                                                <ListItem button key={item.id} onClick={this.handleClick.bind(this, item.name)} >
+            this.state.loaded ?
+                <div>
+                    {this.state.items.categories.map(list => {
+                        return (
+                            <List className={classes.root} key={list.category_id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
+                                {list.items.map(item => {
+                                    return (
+                                        <div key={item.sub_category_id}>
+                                            {item.sub_items != null ? (
+                                                <div key={item.sub_category_id}>
+                                                    <ListItem button key={item.sub_category_id} onClick={this.handleClick.bind(this, item.sub_category_name)} >
+                                                        <ListItemIcon>
+                                                            {AwsIconMatcher(item.sub_category_name)}
+                                                        </ListItemIcon>
+                                                        <ListItemText primary={item.sub_category_title} />
+                                                        {this.state[item.sub_category_name] ? (<ExpandLess />) : (<ExpandMore />)}
+                                                    </ListItem>
+                                                    <Collapse key={list.items.sub_category_id} component="li" in={this.state[item.sub_category_name]} timeout="auto" unmountOnExit >
+                                                        <List disablePadding>
+                                                            {item.sub_items.map(
+                                                                sitem => {
+                                                                    return (
+                                                                        <ListItem button key={sitem.sub_item_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + sitem.sub_item_name + "/" + list.category_id + "/" + item.sub_category_id}>
+                                                                            <ListItemIcon>
+                                                                                {GeneralIconMatcher(sitem.sub_item_name)}
+                                                                            </ListItemIcon>
+                                                                            <ListItemText key={sitem.sub_item_id} primary={sitem.sub_item_title} />
+                                                                        </ListItem>
+                                                                    );
+                                                                }
+                                                            )}
+                                                        </List>
+                                                    </Collapse>{" "}
+                                                </div>
+                                            ) : (
+                                                <ListItem button onClick={this.handleClick.bind(this, item.sub_category_name)} key={item.sub_category_id} >
                                                     <ListItemIcon>
-                                                        {AwsIconMatcher(item.name)}
+                                                        {AwsIconMatcher(item.sub_category_name)}
                                                     </ListItemIcon>
-                                                    <ListItemText primary={item.title} />
-                                                    {this.state[item.name] ? (<ExpandLess />) : (<ExpandMore />)}
+                                                    <ListItemText primary={item.sub_category_title} />
                                                 </ListItem>
-                                                <Collapse key={list.items.id} component="li" in={this.state[item.name]} timeout="auto" unmountOnExit >
-                                                    <List disablePadding>
-                                                        {item.subitems.map(
-                                                            sitem => {
-                                                                return (
-                                                                    <ListItem button key={sitem.id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + sitem.name + "/" + list.id + "/" + item.id}>
-                                                                        <ListItemIcon>
-                                                                            {GeneralIconMatcher(sitem.name)}
-                                                                        </ListItemIcon>
-                                                                        <ListItemText key={sitem.id} primary={sitem.title} />
-                                                                    </ListItem>
-                                                                );
-                                                            }
-                                                        )}
-                                                    </List>
-                                                </Collapse>{" "}
-                                            </div>
-                                        ) : (
-                                            <ListItem button onClick={this.handleClick.bind(this, item.name)} key={item.id} >
-                                                <ListItemIcon>
-                                                    {AwsIconMatcher(item.name)}
-                                                </ListItemIcon>
-                                                <ListItemText primary={item.name} />
-                                            </ListItem>
-                                        )}
-                                    </div>
-                                );
-                            })}
-                            <Divider key={list.id} absolute />
-                        </List>
-                    );
-                })}
-            </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                                <Divider key={list.category_id} absolute />
+                            </List>
+                        );
+                    })}
+                </div> : <div><CircularProgress /></div>
         );
     }
 }
@@ -112,7 +126,9 @@ class NavList extends React.Component {
 NavList.propTypes = {
     classes: PropTypes.object.isRequired,
     items: Object,
-    section: String
+    section: String,
+    newItems: Object,
+    loaded: Boolean
 };
 
 export default withStyles(styles)(NavList);
