@@ -16,7 +16,7 @@ VALUES
 INSERT INTO sub_items (sub_item_id, sub_item_name, sub_item_title, sub_item_isEnabled)
 VALUES
     (1, 'summary', 'Summary', TRUE),
-    (2, 'checklist', 'Revision Checklist', TRUE),
+    (2, 'checklist', 'Revision Checklist', FALSE),
     (3, 'pricing', 'Pricing Model', FALSE);
 
 -- Add sub categories
