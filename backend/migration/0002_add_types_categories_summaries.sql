@@ -1,5 +1,5 @@
 -- Add category types
-INSERT INTO category_types (category_type_id, category_type_name)
+INSERT INTO sections (section_id, section_name)
 VALUES
     (1, 'saacert'),
     (2, 'srepathways');

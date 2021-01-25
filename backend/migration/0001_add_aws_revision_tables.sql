@@ -1,6 +1,6 @@
-CREATE TABLE IF NOT EXISTS category_types(
-    category_type_id INT PRIMARY KEY,
-    category_type_name VARCHAR(50) NOT NULL
+CREATE TABLE IF NOT EXISTS sections(
+    section_id INT PRIMARY KEY,
+    section_name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS categories(
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS categories(
     type_id INT NOT NULL,
     category_title VARCHAR(50) NOT NULL,
     category_name VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_type_in_category_types FOREIGN KEY(type_id) REFERENCES category_types(category_type_id)
+    CONSTRAINT fk_type_in_sections FOREIGN KEY(type_id) REFERENCES sections(section_id)
 );
 
 CREATE TABLE IF NOT EXISTS sub_categories(

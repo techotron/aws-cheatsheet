@@ -63,14 +63,14 @@ async function getCategoryInfo(category_id, sub_category_id) {
         c.category_id,
         c.category_title,
         c.category_name,
-        category_types.category_type_name,
+        sections.section_name,
         sc.sub_category_id,
         sc.sub_category_name,
         sc.sub_category_title,
         sc.sub_category_icon,
         summaries.summary
     FROM categories c
-    LEFT JOIN category_types ON c.type_id = category_types.category_type_id
+    LEFT JOIN sections ON c.type_id = sections.section_id
     LEFT JOIN sub_categories sc ON c.category_id = sc.category_id
     LEFT JOIN summaries ON sc.sub_category_id = summaries.summary_id
     WHERE 
