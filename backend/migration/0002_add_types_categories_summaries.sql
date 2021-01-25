@@ -5,7 +5,7 @@ VALUES
     (2, 'srepathways');
 
 -- Add initial AWS SAA categories
-INSERT INTO categories (category_id, type_id, category_name, category_title)
+INSERT INTO categories (category_id, section_id, category_name, category_title)
 VALUES
     (1, 1, 'iams3', 'IAM + S3');
 
@@ -44,6 +44,23 @@ with {
 
 This **this is in bold**
 
+This [is a link to Google](https://google.co.uk)
+
+
+---
+
+A line separator
+
+---
+
+A table:
+
+|Heading1|Heading2|
+| --- | --- |
+|thing1|thing2|
+|thing1a|thing2a|
+
+---
 
 ## Some more text
 The standard Lorem Ipsum passage, used since the 1500s

@@ -70,7 +70,7 @@ async function getCategoryInfo(category_id, sub_category_id) {
         sc.sub_category_icon,
         summaries.summary
     FROM categories c
-    LEFT JOIN sections ON c.type_id = sections.section_id
+    LEFT JOIN sections ON c.section_id = sections.section_id
     LEFT JOIN sub_categories sc ON c.category_id = sc.category_id
     LEFT JOIN summaries ON sc.sub_category_id = summaries.summary_id
     WHERE 

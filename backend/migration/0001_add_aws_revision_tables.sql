@@ -5,10 +5,10 @@ CREATE TABLE IF NOT EXISTS sections(
 
 CREATE TABLE IF NOT EXISTS categories(
     category_id INT PRIMARY KEY,
-    type_id INT NOT NULL,
+    section_id INT NOT NULL,
     category_title VARCHAR(50) NOT NULL,
     category_name VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_type_in_sections FOREIGN KEY(type_id) REFERENCES sections(section_id)
+    CONSTRAINT fk_type_in_sections FOREIGN KEY(section_id) REFERENCES sections(section_id)
 );
 
 CREATE TABLE IF NOT EXISTS sub_categories(
