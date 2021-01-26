@@ -105,7 +105,7 @@ export default function App() {
         [prefersDarkMode],
     );
 
-    const changeTheme = (event) => {
+    const changeTheme = () => {
         setPrefersDarkMode(!prefersDarkMode)
     };
 
@@ -157,16 +157,16 @@ export default function App() {
 
                         <ListItem button key={0} component={Link} to='/'>
                             <ListItemIcon>
-                                <HomeIcon />                                
+                                <HomeIcon />
                             </ListItemIcon>
-                            <ListItemText primary='Home' />                            
+                            <ListItemText primary='Home' />
                         </ListItem>
 
                         <ListItem>
                             <FormControlLabel
-                                control={<Switch onChange={changeTheme}/>} 
+                                control={<Switch onChange={changeTheme}/>}
                                 label="Dark mode"
-                            />                            
+                            />
                         </ListItem>
 
                         <NavList section={section} />
