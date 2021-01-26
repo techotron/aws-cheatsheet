@@ -7,21 +7,25 @@ Outline taken from Linux Academy
 - S3 101
 - Creating S3 bucket
 - S3 Pricing tiers
+
 - S3 security and encryption
 - S3 versioning
 - Lifecycle Management with S3 - Demo
 - S3 Object Lock and Glacier Vault Lock
 - S3 Performance
+
 - S3 Select and Glacier Select
 - AWS Organizations and Consolidated Billing
 - Sharing S3 Buckets Across Accounts - Lab
 - Cross-Region Replication - Demo
 - S3 Transfer Acceleration
+
 - AWS DataSync
 - CloudFront
 - Create a CloudFront Distribution - Demo
 - CloudFront Signed URLs and Cookies
 - Snowball
+
 - Snowball - Demo
 - Storage Gateway
 - Athena vs. Macie
@@ -32,12 +36,14 @@ Outline taken from Linux Academy
 - Launch Our First EC2 Instance: Part 2 - Demo
 - Security Groups - Demo
 - EBS 101
+
 - EBS Volumes and Snapshots - Demo
 - AMI Types (EBS vs. Instance Store)
 - ENI vs. ENA vs. EFA
 - Encrypted Root Device Volumes and Snapshots - Demo
 - Spot Instances and Spot Fleets
 - EC2 Hibernate
+
 - CloudWatch 101
 - CloudWatch - Demo
 - AWS Command Line (CLI) - Demo
@@ -45,6 +51,7 @@ Outline taken from Linux Academy
 - Using Bootstrap Scripts - Demo
 - Instance Metadata - Demo
 - EFS - Lab
+
 - Amazon FSx for Windows and Amazon FSx for Lustre
 - EC2 Placement Groups
 - HPC on AWS
@@ -56,10 +63,12 @@ Outline taken from Linux Academy
 - RDS: Backups, Multi-AZ, and Read Replicas
 - RDS: Backups, Multi-AZ, and Read Replicas - Demo
 - DynamoDB
+
 - Advanced DynamoDB
 - Redshift
 - Aurora
 - Elasticache
+
 - Database Migration Service (DMS)
 - Caching Strategies on AWS
 - EMR Overview
@@ -77,6 +86,7 @@ Outline taken from Linux Academy
 - Route 53: Simple Routing Policy - Demo
 - Route 53: Weighted Routing Policy - Demo
 - Route 53: Latency-Based Policy - Demo
+
 - Route 53: Failover Routing Policy - Demo
 - Route 53: Geolocation Routing Policy - Demo
 - Route 53: Geoproximity Routing Policy (Traffic Flow Only) - Demo
@@ -90,24 +100,25 @@ Outline taken from Linux Academy
 - Network Access Control Lists vs. Security Groups - Demo
 - Custom VPCs and ELBs - Demo
 - VPC Flow Logs - Demo
+
 - Bastions
 - Direct Connect
 - Setting Up Direct Connect
 - Global Accelerator
 - VPC Endpoints
 - AWS PrivateLink
+
 - AWS Transit Gateway
 - AWS VPN CloudHub
 - AWS Network Costs
 - VPC Summary
-- Hands-On Lab:
-- Creating a Basic VPC and Associated Components - 2020
 ## HA Architecture
 - Elastic Load Balancers
 - Load Balancers and Health Checks - Demo
 - Advanced Load Balancer Theory
 - Auto Scaling
 - Launch Configurations and Auto Scaling Groups - Demo
+
 - HA Architecture
 - Building a Fault-Tolerant WordPress Site - Demo
 - Elastic Beanstalk
@@ -115,11 +126,12 @@ Outline taken from Linux Academy
 - On-Premises Strategies with AWS
 - HA Architecture Summary
 ## Applications
-SQS
+- SQS
 - Simple Workflow Service
 - Simple Notification Service
 - Elastic Transcoder
 - API Gateway
+
 - Kinesis 101
 - Web Identity Federation and Cognito
 - Event Processing Patterns
@@ -129,6 +141,7 @@ SQS
 - Key Management Service (KMS)
 - CloudHSM
 - Systems Manager Parameter Store
+
 - Secrets Manager
 - AWS Shield
 - Web Application Firewall (WAF)
