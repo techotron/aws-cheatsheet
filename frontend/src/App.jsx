@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
@@ -10,6 +10,9 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import NavList from './Navigation/NavList'
 import Router from './Router'
 import { BrowserRouter, Link } from 'react-router-dom'
@@ -91,7 +94,21 @@ function a11yProps(index) {
 
 export default function App() {
     const classes = useStyles()
-    const theme = useTheme()
+
+    const [prefersDarkMode, setPrefersDarkMode] = React.useState(true)
+    const theme = React.useMemo(
+        () => createMuiTheme({
+            palette: {
+                type: prefersDarkMode ? 'dark' : 'light',
+            },
+        }),
+        [prefersDarkMode],
+    );
+
+    const changeTheme = (event) => {
+        setPrefersDarkMode(!prefersDarkMode)
+    };
+
     const [open, setOpen] = React.useState(true)
 
     const handleDrawerOpen = () => {
@@ -115,45 +132,54 @@ export default function App() {
     }
 
     return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <AppBar position='fixed' className={clsx(classes.appBar, { [classes.appBarShift]: open })}>
-                <Toolbar>
-                    <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' className={clsx(classes.menuButton, open && classes.hide)}>
-                        <MenuIcon />
-                    </IconButton>
-                    <Tabs value={value} onChange={handleTabChange}>
-                        <Tab label='Solutions Architect Associate' {...a11yProps(0)} />
-                        <Tab label='SRE Pathway' {...a11yProps(1)} />
-                    </Tabs>
-                </Toolbar>
-            </AppBar>
-            <BrowserRouter>
-                <Drawer className={classes.drawer} variant='persistent' anchor='left' open={open} classes={{ paper: classes.drawerPaper }}>
-                    <div className={classes.drawerHeader}>
-                        <IconButton onClick={handleDrawerClose}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+        <ThemeProvider theme={theme}>
+            <div className={classes.root}>
+                <CssBaseline />
+                <AppBar position='fixed' className={clsx(classes.appBar, { [classes.appBarShift]: open })}>
+                    <Toolbar>
+                        <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' className={clsx(classes.menuButton, open && classes.hide)}>
+                            <MenuIcon />
                         </IconButton>
-                    </div>
-                    <Divider />
+                        <Tabs value={value} onChange={handleTabChange}>
+                            <Tab label='Solutions Architect Associate' {...a11yProps(0)} />
+                            <Tab label='SRE Pathway' {...a11yProps(1)} />
+                        </Tabs>
+                    </Toolbar>
+                </AppBar>
+                <BrowserRouter>
+                    <Drawer className={classes.drawer} variant='persistent' anchor='left' open={open} classes={{ paper: classes.drawerPaper }}>
+                        <div className={classes.drawerHeader}>
+                            <IconButton onClick={handleDrawerClose}>
+                                {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                            </IconButton>
+                        </div>
+                        <Divider />
 
-                    <ListItem button key={0} component={Link} to='/'>
-                        <ListItemIcon>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary='Home' />
-                    </ListItem>
+                        <ListItem button key={0} component={Link} to='/'>
+                            <ListItemIcon>
+                                <HomeIcon />                                
+                            </ListItemIcon>
+                            <ListItemText primary='Home' />                            
+                        </ListItem>
 
-                    <NavList section={section} />
+                        <ListItem>
+                            <FormControlLabel
+                                control={<Switch onChange={changeTheme}/>} 
+                                label="Dark mode"
+                            />                            
+                        </ListItem>
 
-                </Drawer>
-                <main className={clsx(classes.content, { [classes.contentShift]: open })}>
-                    <div className={classes.drawerHeader} />
+                        <NavList section={section} />
 
-                    {/* Router is here to keep content inside the main element */}
-                    <Router />
-                </main>
-            </BrowserRouter>
-        </div>
+                    </Drawer>
+                    <main className={clsx(classes.content, { [classes.contentShift]: open })}>
+                        <div className={classes.drawerHeader} />
+
+                        {/* Router is here to keep content inside the main element */}
+                        <Router />
+                    </main>
+                </BrowserRouter>
+            </div>
+        </ThemeProvider>
     )
 }
