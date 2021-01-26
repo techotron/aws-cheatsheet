@@ -18,7 +18,7 @@ class ServiceChecklist extends React.Component {
     }
 
     getCategory = async (categoryId, subCategoryId) => {
-        const res = await axios.get(`http://localhost:5000/categories/${categoryId}/${subCategoryId}`)
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories/${categoryId}/${subCategoryId}`)
         this.setState({ categoryData: res.data, loaded: true });
     }
 
@@ -37,7 +37,7 @@ class ServiceChecklist extends React.Component {
                             revision checklist
                         </Link>
                         <Link color='inherit'>
-                            {this.state.categoryData[0].category_name}
+                            {this.state.categoryData[0].category_title}
                         </Link>
                         <Typography color='textPrimary'>{this.state.categoryData[0].sub_category_name}</Typography>
                     </Breadcrumbs>

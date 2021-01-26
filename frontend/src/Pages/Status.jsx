@@ -7,7 +7,7 @@ export default class Status extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/status`)
+        axios.get(`${window.env.REACT_APP_BACKEND_API}/status`)
             .then(res => {
                 this.setState({ data: res.data });
             })

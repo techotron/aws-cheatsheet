@@ -62,7 +62,7 @@ class NavList extends React.Component {
     }
 
     getAllCategories = async () => {
-        const res = await axios.get(`http://localhost:5000/categories`);
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories`);
         this.setState({ items: res.data[0].categories, loaded: true });
     }
 
@@ -81,7 +81,7 @@ class NavList extends React.Component {
                                                 <div key={item.sub_category_id}>
                                                     <ListItem button key={item.sub_category_id} onClick={this.handleClick.bind(this, item.sub_category_name)} >
                                                         <ListItemIcon>
-                                                            {AwsIconMatcher(item.sub_category_name)}
+                                                            {AwsIconMatcher(item.sub_category_icon)}
                                                         </ListItemIcon>
                                                         <ListItemText primary={item.sub_category_title} />
                                                         {this.state[item.sub_category_name] ? (<ExpandLess />) : (<ExpandMore />)}
@@ -104,9 +104,9 @@ class NavList extends React.Component {
                                                     </Collapse>{" "}
                                                 </div>
                                             ) : (
-                                                <ListItem button onClick={this.handleClick.bind(this, item.sub_category_name)} key={item.sub_category_id} >
+                                                <ListItem button key={item.sub_category_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + list.category_id + "/" + item.sub_category_id}>
                                                     <ListItemIcon>
-                                                        {AwsIconMatcher(item.sub_category_name)}
+                                                        {AwsIconMatcher(item.sub_category_icon)}
                                                     </ListItemIcon>
                                                     <ListItemText primary={item.sub_category_title} />
                                                 </ListItem>

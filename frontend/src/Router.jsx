@@ -3,8 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 
 import Homepage from './Pages/Homepage'
 import ServiceSummary from './Templates/ServiceSummary'
-import ServiceChecklist from './Templates/ServiceChecklist'
-import ServicePrice from './Templates/ServicePrice'
 import Status from './Pages/Status'
 
 function Router() {
@@ -24,30 +22,13 @@ function Router() {
                         <h1>Welcome to SRE Resources info page</h1>
             Example of dynamic env var:
                         <h3>API_URL: {window.env.REACT_APP_API_URL}</h3>
+                        <h3>BACKEND_URL: {window.env.REACT_APP_BACKEND_API}</h3>
                     </span>}
             />
             <Route
-                path='/saacert/summary/:category/:subCategory'
+                path='/saacert/:category/:subCategory'
                 render={(props) =>
                     <ServiceSummary
-                        props={props}
-                        category={props.match.params.category}
-                        subCategory={props.match.params.subCategory}
-                    />}
-            />
-            <Route
-                path='/saacert/checklist/:category/:subCategory'
-                render={(props) =>
-                    <ServiceChecklist
-                        props={props}
-                        category={props.match.params.category}
-                        subCategory={props.match.params.subCategory}
-                    />}
-            />
-            <Route
-                path='/saacert/pricing/:category/:subCategory'
-                render={(props) =>
-                    <ServicePrice
                         props={props}
                         category={props.match.params.category}
                         subCategory={props.match.params.subCategory}

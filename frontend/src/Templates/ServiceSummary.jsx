@@ -3,7 +3,9 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
+const gfm = require('remark-gfm')
 
 class ServiceSummary extends React.Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class ServiceSummary extends React.Component {
     }
 
     getCategory = async (categoryId, subCategoryId) => {
-        const res = await axios.get(`http://localhost:5000/categories/${categoryId}/${subCategoryId}`)
+        const res = await axios.get(`${window.env.REACT_APP_BACKEND_API}/categories/${categoryId}/${subCategoryId}`)
         this.setState({ categoryData: res.data, loaded: true });
     }
 
@@ -33,7 +35,7 @@ class ServiceSummary extends React.Component {
                 <div>
                     <Breadcrumbs aria-label='breadcrumb'>
                         <Link color='inherit' href='/'>
-                            summary
+                            saacert
                         </Link>
                         <Link color='inherit'>
                             {this.state.categoryData[0].category_name}
@@ -41,8 +43,7 @@ class ServiceSummary extends React.Component {
                         <Typography color='textPrimary'>{this.state.categoryData[0].sub_category_name}</Typography>
                     </Breadcrumbs>
                     <span>
-                        <h1>This is where some information about AWS services will go.</h1>
-                        {this.state.categoryData[0].summary}
+                        <ReactMarkdown plugins={[gfm]} source={this.state.categoryData[0].summary} />
                     </span>
                 </div> : <div><CircularProgress /></div>
         )

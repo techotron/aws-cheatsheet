@@ -13,7 +13,9 @@ import Glacier from 'react-aws-icons/dist/aws/logo/Glacier'
 import ElasticCache from 'react-aws-icons/dist/aws/logo/ElasticCache'
 import Iam from 'react-aws-icons/dist/aws/logo/IAM'
 import Kms from 'react-aws-icons/dist/aws/logo/KMS'
+import Bank from 'react-aws-icons/dist/aws/thing/Bank'
 
+// List if icons: https://travomic.github.io/react-aws-icons/aws.html
 function AwsIconMatcher(service) {
     if (service === 'ec2') {
         return <EC2 />
@@ -37,6 +39,8 @@ function AwsIconMatcher(service) {
         return <Iam />
     } else if (service === 'kms') {
         return <Kms />
+    } else if (service === 'billing') {
+        return <Bank />
     }
 }
 
