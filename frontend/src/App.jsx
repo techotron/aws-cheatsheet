@@ -95,7 +95,7 @@ function a11yProps(index) {
 export default function App() {
     const classes = useStyles()
 
-    const [prefersDarkMode, setPrefersDarkMode] = React.useState(true)
+    const [prefersDarkMode, setPrefersDarkMode] = React.useState(false)
     const theme = React.useMemo(
         () => createMuiTheme({
             palette: {
@@ -165,7 +165,7 @@ export default function App() {
                         <ListItem>
                             <FormControlLabel
                                 control={<Switch onChange={changeTheme}/>}
-                                label="Dark mode"
+                                label={prefersDarkMode ? "Light mode" : "Dark mode"}
                             />
                         </ListItem>
 

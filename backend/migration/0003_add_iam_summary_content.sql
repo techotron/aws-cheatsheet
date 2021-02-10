@@ -4,7 +4,8 @@ VALUES
     (1, '# IAM 101
 Identity and Access Management
 
-- This is where you can setup 
+- Global resource - not tied to specific region
+- This is where you can setup users, groups, roles and policies
     - Users 
     - Groups (collection of users which will inherit permissions of the group)
     - Roles (how you assign permissions to an AWS resource eg, grant an EC2 instance to write to S3)
@@ -14,7 +15,6 @@ Identity and Access Management
 - You can enable MFA, setup password rotation policies
 - It is PCI DSS compliant
 - Root account has permissions to do everything
-- Global resource - not tied to specific region
 
 IAM accounts can connect to the console using a username/password (with MFA as an optional). They can conect programmatically by using the Access Key ID and the Secret Access Key.
 Permissions are assigned to a user via attaching a policy. There are many built-in policies that AWS manage that tie into a job function, or you can create custom policies for more granular control.
