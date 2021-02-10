@@ -5,6 +5,7 @@ import Link from '@material-ui/core/Link'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
+
 const gfm = require('remark-gfm')
 
 class ServiceSummary extends React.Component {
@@ -44,6 +45,20 @@ class ServiceSummary extends React.Component {
                     </Breadcrumbs>
                     <span>
                         <ReactMarkdown plugins={[gfm]} source={this.state.categoryData[0].summary} />
+
+                        {/* Example using summary object */}
+                        {/* <h1>{this.state.categoryData[0].summary.title}</h1>
+                        {
+                            this.state.categoryData[0].summary.subHeaders.map(subHeader => {
+                                return(
+                                    <div>
+                                        <h2>{subHeader.title}</h2>
+                                        <SubHeader contents={subHeader.contents} />
+                                    </div>
+                                )
+                            })
+                        } */}
+
                     </span>
                 </div> : <div><CircularProgress /></div>
         )

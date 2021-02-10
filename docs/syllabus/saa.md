@@ -5,7 +5,6 @@ Outline taken from Linux Academy
 - Identity and Access Management 101
 - Billing alarm
 - S3 101
-- Creating S3 bucket
 - S3 Pricing tiers
 
 - S3 security and encryption
