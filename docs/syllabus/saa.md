@@ -2,8 +2,7 @@
 Outline taken from Linux Academy
 
 ## IAM + S3
-- Identity and Access Management 101
-- Billing alarm
+- Identity and Access Management 101 + Billing alarm
 - S3 101
 - S3 Pricing tiers
 
