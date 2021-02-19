@@ -14,7 +14,6 @@ const feedbackButtonStyle = {
 const modalStyle = {
     top: '50%',
     left: '50%',
-    // backgroundColor: 'white'
     position: 'absolute',
     width: 400,
     border: '2px solid #000',
@@ -28,12 +27,11 @@ export class Feedback extends React.Component {
     }
 
     render() {
-        return (   
+        return (
             <div>
                 <Button variant="contained" color="primary" style={feedbackButtonStyle} onClick={() => this.setState({ showModal: true })}>
                     Feedback
                 </Button>
-                {/* <FeedbackModal open={this.state.showModal} onClose={() => this.setState({ showModal: false })} />              */}
                 <Modal style={modalStyle} open={this.state.showModal} onClose={() => this.setState({showModal: false})}>
                     {<FeedbackModal />}
                 </Modal>
