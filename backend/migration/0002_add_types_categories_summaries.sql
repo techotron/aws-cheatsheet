@@ -15,10 +15,3 @@ VALUES
     (1, 'summary', 'Summary', TRUE),
     (2, 'checklist', 'Revision Checklist', TRUE),
     (3, 'pricing', 'Pricing Model', TRUE);
-
--- Add sub categories
-INSERT INTO sub_categories (sub_category_id, category_id, sub_category_name, sub_category_title, sub_category_icon)
-VALUES
-    (1, 1, 'iam101', 'IAM 101', 'iam'),
-    (2, 1, 's3101', 'S3 101', 's3'),
-    (3, 1, 's3pricingtiers', 'S3 Pricing Tiers', 's3');

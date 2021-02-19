@@ -1,7 +1,15 @@
--- Add summaries
-INSERT INTO summaries (summary_id, summary)
+-- Add sub categories
+INSERT INTO sub_categories (category_id, sub_category_name, sub_category_title, sub_category_icon)
 VALUES
-    (1, '# IAM 101
+    (1, 'iam101', 'IAM 101', 'iam'),
+    (1, 's3101', 'S3 101', 's3'),
+    (1, 's3pricingtiers', 'S3 Pricing Tiers', 's3');
+
+
+-- Add summaries
+INSERT INTO summaries (summary)
+VALUES
+    ('# IAM 101
 Identity and Access Management
 
 - Global resource - not tied to specific region
@@ -22,7 +30,7 @@ Permissions are assigned to a user via attaching a policy. There are many built-
 
 # Billing Alarm
 This is a short one but it''s been seen on the exam before such as "How can you get alerts if your bill exceeds $X?". This is done by creating an Alarm via Cloudwatch which uses a SNS topic pointing to an endpoint (such as an e-mail address for example).'),
-    (2, '# S3 101
+    ('# S3 101
 Simple Storage Services
 
 - A global service but the buckets themselves exist in a single region
@@ -94,7 +102,7 @@ S3 is object storage. Objects consist of the following:
 |Min storage duration charge|n/a|30 days|30 days|30 days|90 days|180 days|
 |Retrieval fee|n/a|n/a|per GB|per GB|per GB|per GB|
 |First byte latency|ms|ms|ms|ms|minutes or hours|hours|'),
-    (3, '# S3 Pricing Tiers
+    ('# S3 Pricing Tiers
 ## Price Model
 You''re charged by:
 - Amount of storage
