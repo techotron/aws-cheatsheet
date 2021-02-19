@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS categories(
 );
 
 CREATE TABLE IF NOT EXISTS sub_categories(
-    sub_category_id INT PRIMARY KEY,
+    sub_category_id SERIAL PRIMARY KEY,
     category_id INT NOT NULL,
     sub_category_name VARCHAR(50) UNIQUE NOT NULL,
     sub_category_title VARCHAR(50) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS sub_items(
 );
 
 CREATE TABLE IF NOT EXISTS summaries(
-    summary_id INT PRIMARY KEY,
+    summary_id SERIAL PRIMARY KEY,
     summary TEXT NOT NULL,
     CONSTRAINT fk_subcategory_in_subcategory FOREIGN KEY(summary_id) REFERENCES sub_categories(sub_category_id)
 );
