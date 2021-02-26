@@ -37,7 +37,6 @@ class ServiceSummary extends React.Component {
                     <Breadcrumbs aria-label='breadcrumb'>
                         <Link color='inherit' href='/'>
                             {this.state.categoryData[0].section_title}
-                            {console.log(this.state)}
                         </Link>
                         <Link color='inherit'>
                             {this.state.categoryData[0].category_title}
