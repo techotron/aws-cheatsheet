@@ -18,6 +18,7 @@ Outline taken from Linux Academy
 - Cross-Region Replication - Demo
 - S3 Transfer Acceleration
 
+- ====== UP TO HERE ======
 - AWS DataSync
 - CloudFront
 - Create a CloudFront Distribution - Demo

@@ -24,6 +24,7 @@ VALUES
 - Encryption at rest (client side): You encrypt the data before uploading it to S3
 
 **Note:** You can encrypt files individually or turn on encryption for the entire bucket.'),
+
     ('# S3 Versioning
 Versioning stores all versions of an object (including all writes and deletes of an object). It could be leveraged as a basic backup method.
 - It can be integrated with Lifecycle rules.
@@ -33,6 +34,7 @@ Versioning stores all versions of an object (including all writes and deletes of
 - You can view previous versions by clicking the **List versions** switch in the UI
 - It _is_ possible to permanently delete each object version which would delete the object entirely but you''d have to do this for each existing version.
 - Versioning''s MFA delete capability can be combined for an extra layer of security.'),
+
     ('# Lifecycle Management with S3
 This is a way of automating the moving of objects to different storage tiers
 - You can scope Lifecycle rules using filters or apply to all objects in a bucket
@@ -44,6 +46,7 @@ This is a way of automating the moving of objects to different storage tiers
     - Permanently delete previous versions of objects
     - Delete expired delete markers of incomplete multipart uploads
 - You configure the above actions to occur after a certain number of days which with transition the object from one storage class/state to another.'),
+
     ('# S3 Object Lock and Glacier Vault Lock
 ## Object Lock
 - Write Once Read Many (WORM). When you want to lock an object in place without any modifications. This can prevent objects from getting deleted/modified for a fix/indefinate amount of time
@@ -59,6 +62,7 @@ This is a way of automating the moving of objects to different storage tiers
 
 ## Glacier Vault Lock
 Vault lock is a way to enforce controls (such as the ones listed above) **in Glacier** and lock the policy from future edits. Once locked the polciy can no longer be changed.'),
+
     ('# S3 Performance
 ## Prefixes
 - The prefix is the bit after the bucket name and before the object name, eg:

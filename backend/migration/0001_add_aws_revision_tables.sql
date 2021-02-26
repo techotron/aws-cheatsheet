@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS sections(
     section_id INT PRIMARY KEY,
-    section_name VARCHAR(50) NOT NULL
+    section_name VARCHAR(50) NOT NULL,
+    section_title VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS categories(

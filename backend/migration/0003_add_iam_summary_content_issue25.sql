@@ -30,6 +30,7 @@ Permissions are assigned to a user via attaching a policy. There are many built-
 
 # Billing Alarm
 This is a short one but it''s been seen on the exam before such as "How can you get alerts if your bill exceeds $X?". This is done by creating an Alarm via Cloudwatch which uses a SNS topic pointing to an endpoint (such as an e-mail address for example).'),
+
     ('# S3 101
 Simple Storage Services
 
@@ -102,6 +103,7 @@ S3 is object storage. Objects consist of the following:
 |Min storage duration charge|n/a|30 days|30 days|30 days|90 days|180 days|
 |Retrieval fee|n/a|n/a|per GB|per GB|per GB|per GB|
 |First byte latency|ms|ms|ms|ms|minutes or hours|hours|'),
+
     ('# S3 Pricing Tiers
 ## Price Model
 You''re charged by:

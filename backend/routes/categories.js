@@ -64,6 +64,7 @@ async function getCategoryInfo(category_id, sub_category_id) {
         c.category_title,
         c.category_name,
         sections.section_name,
+        sections.section_title,
         sc.sub_category_id,
         sc.sub_category_name,
         sc.sub_category_title,
