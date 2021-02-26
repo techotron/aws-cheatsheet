@@ -1,8 +1,8 @@
 -- Add category types
-INSERT INTO sections (section_id, section_name)
+INSERT INTO sections (section_id, section_name, section_title)
 VALUES
-    (1, 'saacert'),
-    (2, 'srepathways');
+    (1, 'saacert', 'Solutions Architect Associate'),
+    (2, 'srepathways', 'SRE Pathways');
 
 -- Add initial AWS SAA categories
 INSERT INTO categories (category_id, section_id, category_name, category_title)

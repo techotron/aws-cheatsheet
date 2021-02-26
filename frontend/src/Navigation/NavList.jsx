@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -34,7 +33,8 @@ class NavList extends React.Component {
         this.state = {
             items: {},
             section: this.props.section,
-            loaded: false
+            loaded: false,
+            list: {}
         }
     }
 
@@ -73,47 +73,55 @@ class NavList extends React.Component {
                 <div>
                     {this.state.items.categories.map(list => {
                         return (
-                            <List className={classes.root} key={list.category_id} subheader={<ListSubheader>{list.title}</ListSubheader>} >
-                                {list.items.map(item => {
-                                    return (
-                                        <div key={item.sub_category_id}>
-                                            {item.sub_items != null ? (
-                                                <div key={item.sub_category_id}>
-                                                    <ListItem button key={item.sub_category_id} onClick={this.handleClick.bind(this, item.sub_category_name)} >
+                            <List className={classes.root} key={list.category_id} subheader={
+                                <ListItem as="button" button onClick={this.handleClick.bind(this, list.title)} >
+                                    {list.title}
+                                    {this.state[list.title] ? <ExpandLess /> : <ExpandMore />}
+                                </ListItem>
+                            }>
+                                <Collapse key={list.category_id} in={this.state[list.title]} component="li" timeout="auto" unmountOnExit >
+                                    {list.items.map(item => {
+                                        return (
+                                            <div key={item.sub_category_id}>
+                                                {item.sub_items != null ? (
+                                                    <div key={item.sub_category_id}>
+                                                        <ListItem button key={item.sub_category_id} onClick={this.handleClick.bind(this, item.sub_category_name)} >
+                                                            <ListItemIcon>
+                                                                {AwsIconMatcher(item.sub_category_icon)}
+                                                            </ListItemIcon>
+                                                            <ListItemText primary={item.sub_category_title} />
+                                                            {this.state[item.sub_category_name] ? <ExpandLess /> : <ExpandMore />}
+                                                        </ListItem>
+                                                        <Collapse key={list.items.sub_category_id} component="li" in={this.state[item.sub_category_name]} timeout="auto" unmountOnExit >
+                                                            <List disablePadding>
+                                                                {item.sub_items.map(
+                                                                    sitem => {
+                                                                        return (
+                                                                            <ListItem button key={sitem.sub_item_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + sitem.sub_item_name + "/" + list.category_id + "/" + item.sub_category_id}>
+                                                                                <ListItemIcon>
+                                                                                    {GeneralIconMatcher(sitem.sub_item_name)}
+                                                                                </ListItemIcon>
+                                                                                <ListItemText key={sitem.sub_item_id} primary={sitem.sub_item_title} />
+                                                                            </ListItem>
+                                                                        );
+                                                                    }
+                                                                )}
+                                                            </List>
+                                                        </Collapse>{" "}
+                                                    </div>
+                                                ) : (
+                                                    <ListItem button key={item.sub_category_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + list.category_id + "/" + item.sub_category_id}>
                                                         <ListItemIcon>
                                                             {AwsIconMatcher(item.sub_category_icon)}
                                                         </ListItemIcon>
                                                         <ListItemText primary={item.sub_category_title} />
-                                                        {this.state[item.sub_category_name] ? (<ExpandLess />) : (<ExpandMore />)}
                                                     </ListItem>
-                                                    <Collapse key={list.items.sub_category_id} component="li" in={this.state[item.sub_category_name]} timeout="auto" unmountOnExit >
-                                                        <List disablePadding>
-                                                            {item.sub_items.map(
-                                                                sitem => {
-                                                                    return (
-                                                                        <ListItem button key={sitem.sub_item_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + sitem.sub_item_name + "/" + list.category_id + "/" + item.sub_category_id}>
-                                                                            <ListItemIcon>
-                                                                                {GeneralIconMatcher(sitem.sub_item_name)}
-                                                                            </ListItemIcon>
-                                                                            <ListItemText key={sitem.sub_item_id} primary={sitem.sub_item_title} />
-                                                                        </ListItem>
-                                                                    );
-                                                                }
-                                                            )}
-                                                        </List>
-                                                    </Collapse>{" "}
-                                                </div>
-                                            ) : (
-                                                <ListItem button key={item.sub_category_id} className={classes.nested} component={Link} to={"/" + this.props.section + "/" + list.category_id + "/" + item.sub_category_id}>
-                                                    <ListItemIcon>
-                                                        {AwsIconMatcher(item.sub_category_icon)}
-                                                    </ListItemIcon>
-                                                    <ListItemText primary={item.sub_category_title} />
-                                                </ListItem>
-                                            )}
-                                        </div>
-                                    );
-                                })}
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+
+                                </Collapse>
                                 <Divider key={list.category_id} absolute />
                             </List>
                         );

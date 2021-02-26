@@ -36,12 +36,12 @@ class ServiceSummary extends React.Component {
                 <div>
                     <Breadcrumbs aria-label='breadcrumb'>
                         <Link color='inherit' href='/'>
-                            saacert
+                            {this.state.categoryData[0].section_title}
                         </Link>
                         <Link color='inherit'>
-                            {this.state.categoryData[0].category_name}
+                            {this.state.categoryData[0].category_title}
                         </Link>
-                        <Typography color='textPrimary'>{this.state.categoryData[0].sub_category_name}</Typography>
+                        <Typography color='textPrimary'>{this.state.categoryData[0].sub_category_title}</Typography>
                     </Breadcrumbs>
                     <span>
                         <ReactMarkdown plugins={[gfm]} source={this.state.categoryData[0].summary} />
