@@ -18,14 +18,14 @@ Outline taken from Linux Academy
 - Cross-Region Replication - Demo
 - S3 Transfer Acceleration
 
-- ====== UP TO HERE ======
 - AWS DataSync
 - CloudFront
 - Create a CloudFront Distribution - Demo
 - CloudFront Signed URLs and Cookies
 - Snowball
-
 - Snowball - Demo
+
+- ====== UP TO HERE ======
 - Storage Gateway
 - Athena vs. Macie
 - S3 and IAM Summary
