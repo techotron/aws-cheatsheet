@@ -15,6 +15,7 @@ import Iam from 'react-aws-icons/dist/aws/logo/IAM'
 import Kms from 'react-aws-icons/dist/aws/logo/KMS'
 import Bank from 'react-aws-icons/dist/aws/thing/Bank'
 import CloudFront from 'react-aws-icons/dist/aws/logo/CloudFront'
+import StorageGateway from 'react-aws-icons/dist/aws/logo/StorageGateway'
 
 // List if icons: https://travomic.github.io/react-aws-icons/aws.html
 function AwsIconMatcher(service) {
@@ -44,6 +45,8 @@ function AwsIconMatcher(service) {
         return <Bank />
     } else if (service === 'cloudfront') {
         return <CloudFront />
+    } else if (service === 'storagegw') {
+        return <StorageGateway />
     }
 }
 
