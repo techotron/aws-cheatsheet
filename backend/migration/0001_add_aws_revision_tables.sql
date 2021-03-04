@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS categories(
     section_id INT NOT NULL,
     category_title VARCHAR(50) NOT NULL,
     category_name VARCHAR(50) NOT NULL,
+    category_icon VARCHAR(20) NOT NULL,
     CONSTRAINT fk_type_in_sections FOREIGN KEY(section_id) REFERENCES sections(section_id)
 );
 

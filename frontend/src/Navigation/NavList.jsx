@@ -75,6 +75,7 @@ class NavList extends React.Component {
                         return (
                             <List className={classes.root} key={list.category_id} subheader={
                                 <ListItem as="button" button onClick={this.handleClick.bind(this, list.title)} >
+                                    {AwsIconMatcher(list.icon)}
                                     {list.title}
                                     {this.state[list.title] ? <ExpandLess /> : <ExpandMore />}
                                 </ListItem>
