@@ -25,11 +25,11 @@ Outline taken from Linux Academy
 - Snowball
 - Snowball - Demo
 
-- ====== UP TO HERE ======
 - Storage Gateway
 - Athena vs. Macie
 - S3 and IAM Summary
 ## EC2
+- ====== UP TO HERE ======
 - EC2 101 - Elastic Compute Cloud
 - Launch Our First EC2 Instance: Part 1 - Demo
 - Launch Our First EC2 Instance: Part 2 - Demo
