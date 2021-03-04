@@ -28,6 +28,7 @@ Outline taken from Linux Academy
 - Storage Gateway
 - Athena vs. Macie
 - S3 and IAM Summary
+
 ## EC2
 - ====== UP TO HERE ======
 - EC2 101 - Elastic Compute Cloud
