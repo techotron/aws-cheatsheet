@@ -5,9 +5,9 @@ VALUES
     (2, 'srepathways', 'SRE Pathways');
 
 -- Add initial AWS SAA categories
-INSERT INTO categories (category_id, section_id, category_name, category_title)
+INSERT INTO categories (category_id, section_id, category_name, category_title, category_icon)
 VALUES
-    (1, 1, 'iams3', 'IAM + S3');
+    (1, 1, 'iams3', 'IAM + S3', 's3');
 
 -- Add sub items
 INSERT INTO sub_items (sub_item_id, sub_item_name, sub_item_title, sub_item_isEnabled)

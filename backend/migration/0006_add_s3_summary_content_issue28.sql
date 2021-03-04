@@ -17,6 +17,7 @@ VALUES
 - Used to move **large** amounts of data
 - Replication can be done hourly, daily or weekly
 - Can be used to replicate EFS to EFS (eg EC2 connected to 2 EFS volumes + the agent installed can replicate the data)'),
+
     ('# CloudFront
 - Content Delivery Network (CDN) - distributed network of servers that delivers web content to a user based on their geographical location to provide optimal performance
 - It can be used to deliver static/dynamic websites, streaming and interactive content
@@ -28,6 +29,7 @@ VALUES
 - A user''s request will hit an edge location. If the edge location doesn''t have a copy of the requested file, it will fetch it from the origin and cache it for a configurable time period (TTL).
 - You can clear cached content by invalidating them (meaning the edge locations will fetch from the origin when it''s next requested)
 - There are 2 different types of distributions: **Web Distribution** (used for websites) and **RTMP** used for media streaming.'),
+
     ('# CloudFront Signed URLs and Cookies
 - Signed URLs and cookies are a way of restricting access to the content in a CDN to they''re only accessable for the intended users.
 - **Signed URLs**: are used for invididual files
@@ -50,6 +52,7 @@ A typical workflow would look like this:
 - Slightly different to the CloudFront example above in that it issues a request as the IAM user who creates the pre-signed URL (therefore has the same permissions as that IAM user)
 - S3 signed URL requests have a limited lifetime
 **Note:** If your origin is EC2, then this isn''t an option'),
+
     ('# Snowball Services
 - Big portable disk (petebyte scale) for moving large amounts of data into and out of AWS.
 

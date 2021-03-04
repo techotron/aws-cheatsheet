@@ -17,6 +17,7 @@ async function getAllCategories() {
                     'category_id', c.category_id,
                     'name', c.category_name,
                     'title', c.category_title,
+                    'icon', c.category_icon,
                     'items', sub_category_items
                 )
             )
