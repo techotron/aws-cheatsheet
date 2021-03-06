@@ -42,7 +42,7 @@ class ServiceSummary extends React.Component {
 
         return (
             <span>
-                <Button 
+                <Button
                     style={{margin: '5px'}}
                     variant="contained"
                     color="primary"
