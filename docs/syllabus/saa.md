@@ -28,15 +28,16 @@ Outline taken from Linux Academy
 - Storage Gateway
 - Athena vs. Macie
 - S3 and IAM Summary
+
 ## EC2
-- ====== UP TO HERE ======
 - EC2 101 - Elastic Compute Cloud
 - Launch Our First EC2 Instance: Part 1 - Demo
 - Launch Our First EC2 Instance: Part 2 - Demo
 - Security Groups - Demo
 - EBS 101
-
 - EBS Volumes and Snapshots - Demo
+
+- ====== UP TO HERE ======
 - AMI Types (EBS vs. Instance Store)
 - ENI vs. ENA vs. EFA
 - Encrypted Root Device Volumes and Snapshots - Demo
