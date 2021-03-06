@@ -40,7 +40,6 @@ import SystemsManager from 'react-aws-icons/dist/aws/logo/SystemsManager'
 import Shield from 'react-aws-icons/dist/aws/logo/Shield'
 
 
-
 // List if icons: https://travomic.github.io/react-aws-icons/aws.html
 function AwsIconMatcher(service) {
     if (service === 'ec2') {
