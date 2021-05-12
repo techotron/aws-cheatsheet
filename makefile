@@ -22,4 +22,5 @@ lint:
 		-v $(shell pwd):/tmp/lint \
 		-e VALIDATE_JAVASCRIPT_STANDARD=false \
 		-e VALIDATE_BASH=false \
+		-e VALIDATE_SQL=false \
 			github/super-linter:latest

@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 # AMI Types (EBS vs. Instance Store)
 You can filter AMIs based on:
 - Region
