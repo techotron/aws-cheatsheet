@@ -1,5 +1,17 @@
-<!-- markdownlint-disable -->
-# AMI Types (EBS vs. Instance Store)
+-- Add sub categories
+INSERT INTO sub_categories (category_id, sub_category_name, sub_category_title, sub_category_icon)
+VALUES
+    (2, 'ec2amitypes', 'AMI Types (EBS vs. Instance Store)', 'ec2'),
+    (2, 'ec2enienaefa', 'ENI vs. ENA vs. EFA', 'ec2'),
+    (2, 'ec2encrootvol', 'Encrypted Root Device Volumes and Snapshots', 'ec2'),
+    (2, 'ec2spot', 'Spot Instances and Spot Fleets', 'ec2'),
+    (2, 'ec2hibernate', 'EC2 Hibernate', 'ec2');
+
+
+-- Add summaries
+INSERT INTO summaries (summary)
+VALUES
+    ('# AMI Types (EBS vs. Instance Store)
 You can filter AMIs based on:
 - Region
 - OS
@@ -12,10 +24,9 @@ You can filter AMIs based on:
     - Not persistent (you can only reboot or terminate)
   - EBS backed volumes:
     - Root device is created from an EBS snapshot
-    - Data is persistent - you can stop and start without loosing data.
+    - Data is persistent - you can stop and start without loosing data.'),
 
--------------------
-# ENI vs. ENA vs. EFA
+    ('# ENI vs. ENA vs. EFA
 ## ENI: Elastic Network Interface
 - 1 primary private IPv4 + 1 or more secondary private IPv4 addresses from the VPC range
 - You are have:
@@ -45,19 +56,16 @@ You can filter AMIs based on:
 - A network device for EC2 instances for High Performance Computing (HPC) and Machine Learning (ML)
 - Provides lower, consistent latency and higher throughput than TCP
 - Can use OS-bypass, which allows HPC/ML applications to bypass the OS kernal and communicate directly with the EFA device.
-- Only supported on Linux
+- Only supported on Linux'),
 
--------------------
-# Encrypted Root Device Volumes and Snapshots
+    ('# Encrypted Root Device Volumes and Snapshots
 - Snapshots of encryped volumes are encrypted automatically
 - Volumes restored from encryped snapshots are encrypted automatically
 - You can only share unencryped snapshots. They can be shared with other AWS accounts or made public
 - You can create root device on EC2 creation
-- If you need to encrypt a root device which is unencrpyted, you need to take a snapshot of it, then copy it - selecting the `encrypt` checkbox - then create a new EC2 instance using the newly copied snapshot.
+- If you need to encrypt a root device which is unencrpyted, you need to take a snapshot of it, then copy it - selecting the `encrypt` checkbox - then create a new EC2 instance using the newly copied snapshot.'),
 
-
--------------------
-# Spot Instances and Spot Fleets
+    ('# Spot Instances and Spot Fleets
 - Spot instances are unused EC2 capacity which are discounted up to 90% (compared with on-demand prices)
 - Cost effective for fault tolerent workloads, big data processing, containerised workloads, CI/CD, HPC, test/dev workloads.
 - You select a maximum **Spot Price** you wish to pay for an instance. The spot price will fluctuate but as long as your max is above the current spot price, your instance will stay online.
@@ -93,10 +101,9 @@ A **spot fleet** attempts to launch a number of spot instances and on-demand ins
 - Capacity Optimised: Instances come from the pool with optimal capacity for the number of instances about to launch
 - Diversified: Distributed across all pools
 - Lowest Price (default): Instances come from the cheapest pool
-- Instance Pools to Use Count: Distributed across all pools but uses the lowest price across them. 
+- Instance Pools to Use Count: Distributed across all pools but uses the lowest price across them. '),
 
--------------------
-# EC2 Hibernate
+    ('# EC2 Hibernate
 When an instance is stopped, data on an EBS volume is kept. If an instance is terminated, then data on the root device volume will be lost.
 
 When an instance starts up, the OS boots up, then user data scripts are run (bootstraping) and finally the applications start. This final stage can tage some time which is where hibernation comes in.
@@ -112,6 +119,4 @@ An EC2 instance starting from hibernation: EBS root volume is restored, RAM cont
 - Instance RAM must be less than 150GB
 - Available for Windows, Amazon Linux 2 AMI and Ubuntu
 - Can''t be hibernated for more than 60 days
-- Available for **On-Demand** and **Reserved** instances
-
--------------------
+- Available for **On-Demand** and **Reserved** instances');
